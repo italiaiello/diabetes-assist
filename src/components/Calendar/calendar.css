@@ -1,7 +1,86 @@
+.App {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Calendar */
+
 abbr[title] {
     text-decoration: none;
   }
   
 .react-calendar {
     width: 40%;
+    height: auto;
+    margin: 0;
+}
+
+button, abbr {
+    font-family: Montserrat;
+}
+
+.react-calendar {
+    background: none;
+    border: none;
+}
+
+.react-calendar__tile {
+    font-size: 15px;
+    height: 100px;
+}
+
+.react-calendar__month-view__days__day {
+    color: white;
+    text-align: top;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+    color: darkgray;
+}
+
+/* Daily Info */
+
+#dailyInfo {
+    width: 40%;
+}
+
+#time-signout {
+    display: flex;
+    justify-content: center;
+}
+
+#time {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    font-family: Montserrat;
+}
+
+#signout {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#signout button {
+    margin-top: 10px;
+    font-size: 15px;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    background: #003B46;
+    color: white;
+    box-shadow: 1px 5px 10px #07575B;
+    outline: none;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+#signout button:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#signout button:active {
+    transform: scale(0.95, 0.95);
 }

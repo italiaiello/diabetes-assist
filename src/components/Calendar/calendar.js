@@ -11,12 +11,10 @@ class ReactCalendar extends Component {
  
   render() {
     return (
-      <div>
         <Calendar
           onChange={this.onChange}
           value={this.state.date}
         />
-      </div>
     );
   }
 }
