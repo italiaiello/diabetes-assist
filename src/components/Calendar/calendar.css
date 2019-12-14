@@ -84,3 +84,87 @@ button, abbr {
 #signout button:active {
     transform: scale(0.95, 0.95);
 }
+
+/* Todo List */
+
+#welcome {
+    color: #07575B;
+    text-align: left;
+    margin: 10px auto;
+}
+
+#welcome span {
+    color: #003B46;
+    font-weight: bolder;
+}
+
+#today {
+    text-align: left;
+    width: 80px;
+    border-bottom: 4px solid #C4DFE6;
+}
+
+#addTask {
+    display: flex;
+    padding: 10px;
+}
+
+#addTask input {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#addTask input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+#addTask button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 23px;
+    font-weight: bolder;
+    background-color: #003B46;
+    border: none;
+    color: #C4DFE6;
+}
+
+#addTask input, #addTask button {
+    outline: none;
+}
+
+/* List Items */
+
+#thingsToDo {
+    height: 280px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.list {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.circleButton {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #D7D7D7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.list p {
+    color: #C4DFE6;
+    text-align: left;
+    padding: 10px;
+    margin: 0;
+}

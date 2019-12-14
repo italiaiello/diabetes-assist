@@ -1,5 +1,5 @@
 import React from 'react';
-import DailyInfo from './components/DailyInfo/DailyInfo'
+import DailyInfo from './components/DailyInfo/DailyInfo';
 
 import './App.css';
 

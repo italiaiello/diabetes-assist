@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from '../../components/TodoList/TodoList'
 
 const DailyInfo = props => {
 
@@ -12,6 +13,9 @@ const DailyInfo = props => {
                     <button>Sign Out</button>
                 </div>
             </article>
+            <h1 id="welcome">Welcome, <span>AYSHA</span></h1>
+            <h2 id="today">TODAY</h2>
+            <TodoList />
         </section>
     )
 }
