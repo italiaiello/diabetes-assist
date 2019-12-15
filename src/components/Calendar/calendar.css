@@ -1,6 +1,7 @@
-.App {
+.homePage {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 /* Calendar */
@@ -54,6 +55,7 @@ button, abbr {
     display: flex;
     justify-content: flex-end;
     font-family: Montserrat;
+    color: white;
 }
 
 #signout {
@@ -139,7 +141,8 @@ button, abbr {
 /* List Items */
 
 #thingsToDo {
-    height: 280px;
+    height: auto;
+    max-height: 270px;
     overflow-y: scroll;
     margin-bottom: 20px;
 }
@@ -149,8 +152,6 @@ button, abbr {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    padding: 10px;
     overflow-y: scroll;
 }
 
@@ -163,8 +164,49 @@ button, abbr {
 }
 
 .list p {
+    width: 80%;
     color: #C4DFE6;
     text-align: left;
     padding: 10px;
+    padding-left: 0;
     margin: 0;
+    margin-left: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation on Home Page */
+
+#navigationBar {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+#navButtons {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#navButtons figure {
+    width: 100px;
+    height: auto;
+}
+
+#emergency {
+    width: 20%;
+}
+
+#navigationBar figure img {
+    width: auto;
+    height: 60px;
+    transition: all .2s ease-in-out;
+}
+
+#navigationBar figure img:hover {
+    transform: scale(1.05, 1.05);
+}
+
+#navigationBar figure img:active {
+    transform: scale(0.95, 0.95)
 }
