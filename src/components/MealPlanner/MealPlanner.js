@@ -1,9 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
+import HomeButton from '../../images/Home.svg';
 
-const Health = () => {
+const MealPlanner = props => {
+
+    let recipeData = props.recipeData
+    const [images, setImages] = useState([])
+
+    const onMealTimeSelect = (e) => {
+        props.handleClick(e)
+        props.onRouteChange('mealSelect')
+    }
+
     return (
-        <h1>Health</h1>
+        <div>
+        {
+            !recipeData.length ?
+            <h1>Loading</h1>
+            :
+            <div id="mealHome">
+                <h1>Meal Planner</h1>
+                <h2>Choose Your Meals</h2>
+                <section>
+                    <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <figure data-index="0">
+                            {
+                                images[0] === undefined ?
+                                <p>+</p>
+                                :
+                                <figure>
+                                    <img src="https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg" alt="Green tea and pineapple smoothie" />
+                                </figure>
+
+                            }
+                        </figure>
+                        <div data-index="0">
+                            <p>Breakfast</p>
+                        </div>
+                    </article>
+                    <article id="lunch" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <figure data-index="1">
+                            {
+                                images[1] === undefined ?
+                                <p>+</p>
+                                :
+                                <h1>Image</h1>
+                            }
+                        </figure>
+                        <div data-index="1">
+                            <p>Lunch</p>
+                        </div>
+                    </article>
+                    <article id="dinner" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <figure data-index="2">
+                            {
+                                images[2] === undefined ?
+                                <p>+</p>
+                                :
+                                <h1>Image</h1>
+                            }
+                        </figure>
+                        <div data-index="2">
+                            <p>Dinner</p>
+                        </div>
+                    </article>
+                </section>
+                <figure className="homeButton">
+                    <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+                </figure>
+            </div>
+        }
+        </div>
     )
 }
 
-export default Health
+export default MealPlanner

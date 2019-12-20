@@ -201,6 +201,7 @@ button, abbr {
     width: auto;
     height: 60px;
     transition: all .2s ease-in-out;
+    cursor: pointer;
 }
 
 #navigationBar figure img:hover {
@@ -209,4 +210,178 @@ button, abbr {
 
 #navigationBar figure img:active {
     transform: scale(0.95, 0.95)
+}
+
+/* Meal Planner */
+
+#mealHome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#mealHome section {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.chooseMealHome {
+    width: 30%;
+    height: 400px;
+    background-color: #C4DFE6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chooseMealHome figure {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.chooseMealHome figure p {
+    text-align: center;
+}
+
+.chooseMealHome div {
+    background-color: #003B46;
+    width: 100%;
+    flex: 1;
+
+}
+
+    /* Home Button */
+
+.homeButton {
+    width: 30%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.homeButton img {
+    transition: all .2s ease-in-out;
+}
+
+.homeButton img:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.homeButton img:active {
+    transform: scale(0.95, 0.95);
+}
+
+    /* Select Meal */
+
+#mealSelect {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.filterMeals {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.filterMeals button {
+    width: 100px;
+    height: 50px;
+    margin: 0 10px;
+    background-color: #66A5AD;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.filterMeals .active {
+    background-color: #003B46;
+}
+
+.availableMeals {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+}
+
+.leftArrow, .rightArrow {
+    width: 0; 
+    height: 0; 
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.rightArrow {
+    border-left: 40px solid #003B46;
+}
+
+.leftArrow {
+    border-right: 40px solid #003B46;
+}
+
+.rightArrow:hover, .leftArrow:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.rightArrow:active, .leftArrow:active {
+    transform: scale(0.95, 0.95);
+}
+
+.foodCard {
+    width: 40%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #C4DFE6;
+    border-radius: 25px;
+}
+
+.foodCard figure {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.foodCard figure img {
+    display: block;
+    max-width: 300px; 
+    height: 300px;
+}
+
+.foodName {
+    width: 100%;
+    height: 100px;
+    background-color: #003B46;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foodName p {
+    width: 80%;
+    margin: 0 auto;
+    color: white;
 }

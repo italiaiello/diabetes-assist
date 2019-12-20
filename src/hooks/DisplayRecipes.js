@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react';
 
-export const useDataFetch = (url, dependencies) => {
-
-    if (dependencies[0] === undefined || dependencies[0] === '') {
-        url = `https://superheroapi.com/api/779757025830796/search/deadpool`;
-    }
+export const useDataFetch = (url) => {
 
 
     const [isLoading, setIsLoading] = useState(false);
-    const [heroData, setHeroData] = useState([]);
+    const [recipeData, setRecipeData] = useState([]);
 
     useEffect(() => {
         setIsLoading(true);
-        console.log('Fetching hero data...');
-        console.log(url)
+        console.log('Fetching recipe data...');
         fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -23,17 +18,16 @@ export const useDataFetch = (url, dependencies) => {
         })
         .then (data => {
             setIsLoading(false);
-            setHeroData(data.results);
-            console.log(heroData);
+            setRecipeData(data.results);
         })
         .catch(err => {
             console.log(err)
             setIsLoading(false);
-            setHeroData('Not found');
+            setRecipeData('Not found');
         })
 
     }, [url])
 
-    return [isLoading, heroData];
+    return [isLoading, recipeData];
 
 }
