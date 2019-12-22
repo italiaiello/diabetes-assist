@@ -33,8 +33,16 @@ const SelectMeal = props => {
     console.log(`${props.recipeData[0].imageUrls[0]}`)
 
     return (
-        <div id="mealSelect">
-            <h1>{headingArray[props.index]}</h1>
+        <div className="pageDisplay">
+            <div className="backAndHeading">
+                <div className="sectionHeading">
+                    <div className="back">
+                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
+                        <p>Back</p>
+                    </div>
+                    <h1>{headingArray[props.index]}</h1>
+                </div>
+            </div>
             <nav className="filterMeals">
                 <button className="active">All</button>
                 <button>Favourites</button>
@@ -54,7 +62,7 @@ const SelectMeal = props => {
                 <div className="rightArrow" onClick={changeMeal.bind(this, 'next')}></div>
             </article>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" />
+                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')}/>
             </figure>
         </div>
     )

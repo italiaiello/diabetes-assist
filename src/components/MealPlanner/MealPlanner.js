@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PlusSign from '../../images/plus_sign.svg'
 import HomeButton from '../../images/Home.svg';
 
 const MealPlanner = props => {
@@ -17,20 +18,25 @@ const MealPlanner = props => {
             !recipeData.length ?
             <h1>Loading</h1>
             :
-            <div id="mealHome">
-                <h1>Meal Planner</h1>
+            <div className="pageDisplay">
+                <div className="backAndHeading">
+                    <div className="sectionHeading">
+                        <div className="back">
+                            <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                            <p>Back</p>
+                        </div>
+                        <h1>Meal Planner</h1>
+                    </div>
+                </div>
                 <h2>Choose Your Meals</h2>
                 <section>
                     <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect}>
                         <figure data-index="0">
                             {
                                 images[0] === undefined ?
-                                <p>+</p>
+                                <img src={PlusSign} alt="Plus sign" />
                                 :
-                                <figure>
-                                    <img src="https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg" alt="Green tea and pineapple smoothie" />
-                                </figure>
-
+                                <img src="https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg" alt="Green tea and pineapple smoothie" />
                             }
                         </figure>
                         <div data-index="0">
@@ -41,9 +47,9 @@ const MealPlanner = props => {
                         <figure data-index="1">
                             {
                                 images[1] === undefined ?
-                                <p>+</p>
+                                <img src={PlusSign} alt="Plus sign" />
                                 :
-                                <h1>Image</h1>
+                                <img src="https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg" alt="Green tea and pineapple smoothie" />
                             }
                         </figure>
                         <div data-index="1">
@@ -54,9 +60,10 @@ const MealPlanner = props => {
                         <figure data-index="2">
                             {
                                 images[2] === undefined ?
-                                <p>+</p>
+                                
+                                <img src={PlusSign} alt="Plus sign" />
                                 :
-                                <h1>Image</h1>
+                                <img src="https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg" alt="Green tea and pineapple smoothie" />
                             }
                         </figure>
                         <div data-index="2">

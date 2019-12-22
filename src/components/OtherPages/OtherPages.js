@@ -32,30 +32,35 @@ const OtherPages = props => {
         <div>
             {
 
-            isLoading ? 
+            isLoading && route === 'meal' ? 
             <h1>Fetching Recipe Data</h1>
             :
             (
-                route === 'health' ?
-                <Health />
+                isLoading ?
+                <h1>Loading...</h1>
                 :
                 (
-                    route === 'cybel' ?
-                    <Cybel />
+                    route === 'health' ?
+                    <Health />
                     :
                     (
-                        route === 'meal' ?
-                        <MealPlanner recipeData={recipeData} handleClick={handleClick} onRouteChange={props.onRouteChange} />
+                        route === 'cybel' ?
+                        <Cybel />
                         :
                         (
-                            route === 'mealSelect' ?
-                            <SelectMeal recipeData={slicedRecipeData} index={index} />
+                            route === 'meal' ?
+                            <MealPlanner recipeData={recipeData} handleClick={handleClick} onRouteChange={props.onRouteChange} />
                             :
                             (
-                                route === 'appointment' ?
-                                <Appointment />
+                                route === 'mealSelect' ?
+                                <SelectMeal recipeData={slicedRecipeData} index={index} onRouteChange={props.onRouteChange} />
                                 :
-                                <Emergency />
+                                (
+                                    route === 'appointment' ?
+                                    <Appointment />
+                                    :
+                                    <Emergency onRouteChange={props.onRouteChange} />
+                                )
                             )
                         )
                     )

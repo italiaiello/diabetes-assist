@@ -214,7 +214,7 @@ button, abbr {
 
 /* Meal Planner */
 
-#mealHome {
+.pageDisplay {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -222,12 +222,41 @@ button, abbr {
     justify-content: space-around;
 }
 
-#mealHome section {
+.pageDisplay section {
     width: 70%;
     height: auto;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+}
+
+.backAndHeading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sectionHeading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.back {
+    position: absolute;
+    left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.back .leftArrow {
+    border-right: 40px solid #C4DFE6;
+}
+
+.back p {
+    margin-left: 15px;
+    color: #C4DFE6
 }
 
 .chooseMealHome {
@@ -246,6 +275,11 @@ button, abbr {
     justify-content: center;
 }
 
+.chooseMealHome figure img {
+    width: 30%;
+    height: auto;
+}
+
 .chooseMealHome figure p {
     text-align: center;
 }
@@ -254,7 +288,10 @@ button, abbr {
     background-color: #003B46;
     width: 100%;
     flex: 1;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
     /* Home Button */
@@ -279,7 +316,7 @@ button, abbr {
 
     /* Select Meal */
 
-#mealSelect {
+.pageDisplay {
     height: 100vh;
     display: flex;
     flex-direction: column;

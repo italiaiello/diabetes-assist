@@ -1,8 +1,24 @@
 import React from 'react'
+import Phone from '../../images/ringing_phone.svg'
 
-const Emergency = () => {
+const Emergency = props => {
     return (
-        <h1>Emergency</h1>
+        <article>
+            <div className="backAndHeading">
+                    <div className="sectionHeading">
+                        <div className="back">
+                            <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                            <p>Back</p>
+                        </div>
+                        <h1>Emergency</h1>
+                    </div>
+                </div>
+            <figure id="phone">
+                <img src={Phone} alt="Phone ringing" />
+            </figure>
+            <p>Calling "<span>000</span>" For You...</p>
+            <button id="cancelCall">Cancel</button>
+        </article>
     )
 }
 
