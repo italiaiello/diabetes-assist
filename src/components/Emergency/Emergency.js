@@ -3,7 +3,7 @@ import Phone from '../../images/ringing_phone.svg'
 
 const Emergency = props => {
     return (
-        <article>
+        <article className="pageDisplay">
             <div className="backAndHeading">
                     <div className="sectionHeading">
                         <div className="back">
