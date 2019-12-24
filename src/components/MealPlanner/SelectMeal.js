@@ -43,7 +43,7 @@ const SelectMeal = props => {
                     <h1>{headingArray[props.index]}</h1>
                 </div>
             </div>
-            <nav className="filterMeals">
+            <nav className="filter">
                 <button className="active">All</button>
                 <button>Favourites</button>
                 <button>New</button>

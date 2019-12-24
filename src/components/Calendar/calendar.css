@@ -304,6 +304,7 @@ button, abbr {
 
 .homeButton img {
     transition: all .2s ease-in-out;
+    cursor: pointer;
 }
 
 .homeButton img:hover {
@@ -324,7 +325,11 @@ button, abbr {
     justify-content: space-around;
 }
 
-.filterMeals {
+.pageDisplay h1 {
+    font-size: 40px;
+}
+
+.filter {
     width: 50%;
     height: auto;
     display: flex;
@@ -332,7 +337,7 @@ button, abbr {
     margin: 0 auto;
 }
 
-.filterMeals button {
+.filter button {
     width: 100px;
     height: 50px;
     margin: 0 10px;
@@ -344,7 +349,7 @@ button, abbr {
     cursor: pointer;
 }
 
-.filterMeals .active {
+.filter .active {
     background-color: #003B46;
 }
 
@@ -424,6 +429,16 @@ button, abbr {
 }
 
 /* Emergency Call */
+
+#calling {
+    font-size: 40px;
+    font-weight: bold;
+    color: #003B46;
+}
+
+#calling span {
+    color: #C4DFE6;
+}
 
 #cancelCall {
     width: 200px;

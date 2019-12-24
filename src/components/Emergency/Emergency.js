@@ -16,7 +16,7 @@ const Emergency = props => {
             <figure id="phone">
                 <img src={Phone} alt="Phone ringing" />
             </figure>
-            <p>Calling "<span>000</span>" For You...</p>
+            <p id="calling">Calling "<span>000</span>" For You...</p>
             <button id="cancelCall">Cancel</button>
         </article>
     )

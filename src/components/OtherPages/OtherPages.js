@@ -45,7 +45,7 @@ const OtherPages = props => {
                     :
                     (
                         route === 'cybel' ?
-                        <Cybel />
+                        <Cybel onRouteChange={props.onRouteChange} />
                         :
                         (
                             route === 'meal' ?
@@ -57,7 +57,7 @@ const OtherPages = props => {
                                 :
                                 (
                                     route === 'appointment' ?
-                                    <Appointment />
+                                    <Appointment onRouteChange={props.onRouteChange} />
                                     :
                                     <Emergency onRouteChange={props.onRouteChange} />
                                 )
