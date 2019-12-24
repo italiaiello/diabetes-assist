@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import TodoList from '../../components/TodoList/TodoList'
 
 const DailyInfo = props => {
 
+    
+    const [date, setDate] = useState(new Date())
+
+    useEffect(() => {
+        setInterval(() => tick(), 1000)
+    })
+
+    const tick = () => {
+        setDate(new Date())
+    }
+        
     return (
         <section id="dailyInfo">
             <article id="time-signout">
                 <div id="time">
-                    <h2>11:11 AM</h2>
+                    <h2>{date.toLocaleTimeString().substring(0, 5)}</h2>
                 </div>
                 <div id="signout">
                     <button>Sign Out</button>
