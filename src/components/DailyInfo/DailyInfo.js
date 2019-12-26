@@ -7,8 +7,10 @@ const DailyInfo = props => {
     const [date, setDate] = useState(new Date())
 
     useEffect(() => {
-        setInterval(() => tick(), 1000)
-    })
+        const time = setInterval(() => tick(), 1000)
+
+        return () => clearInterval(time)
+    }, [date])
 
     const tick = () => {
         setDate(new Date())

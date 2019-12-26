@@ -10,8 +10,10 @@ import ReactCalendar from './components/Calendar/calendar';
 const App = () => {
 
   const [route, setRoute] = useState('home')
+  const [fetchData, setFetchData] = useState(false)
 
   const onRouteChange = (route) => {
+    route === 'meal' ? setFetchData(true) : setFetchData(false)
     setRoute(route);
   }
 
@@ -27,7 +29,7 @@ const App = () => {
             <Navigation onRouteChange={onRouteChange} />
           </div>
         :
-        <OtherPages route={route} onRouteChange={onRouteChange} />
+        <OtherPages route={route} onRouteChange={onRouteChange} fetchData={fetchData} />
       }
     </div>
   );

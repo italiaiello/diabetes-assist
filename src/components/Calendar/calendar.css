@@ -212,6 +212,87 @@ button, abbr {
     transform: scale(0.95, 0.95)
 }
 
+/* Health */
+
+#healthSection {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#healthData {
+    width: 60%;
+    height: auto;
+}
+
+#routine {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    height: 300px;
+}
+
+#change {
+    position: absolute;
+    right: 20px;
+    background-color: #C4DFE6;
+    color: #003B46;
+    border: none;
+    width: 120px;
+    height: 45px;
+    border-radius: 50px;
+    outline: none;
+    box-shadow: 0px 3px 5px #003B46;
+    font-size: 17px;
+    font-weight: bold
+}
+
+#bglGraph {
+    height: 300px;
+}
+
+/* Appointment */
+
+.healthProfessionals {
+    border-bottom: 2px solid #003B46;
+    height: 50vh;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+.professional {
+    background-color: #003B46;
+    border-radius: 20px;
+    width: 60%;
+    height: 200px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.professional:hover {
+    transform: scale(1.02);
+}
+
+.professional:active {
+    transform: scale(0.98);
+}
+
+.HPInfo {
+    color: white;
+    text-align: left;
+}
+
+.appointmentArrow {
+    position: absolute;
+    right: 30px;
+    border-left: 40px solid white
+}
+
 /* Meal Planner */
 
 .pageDisplay {
@@ -427,6 +508,8 @@ button, abbr {
     margin: 0 auto;
     color: white;
 }
+
+
 
 /* Emergency Call */
 

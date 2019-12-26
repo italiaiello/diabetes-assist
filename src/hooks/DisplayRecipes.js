@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react';
 
-export const useDataFetch = (url) => {
-
+export const useDataFetch = (url, dependencies) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [recipeData, setRecipeData] = useState([]);
 
+
     useEffect(() => {
         setIsLoading(true);
+        console.log(dependencies)
+
+        if (dependencies === false) {
+            setIsLoading(false);
+            return;
+        }
+
         console.log('Fetching recipe data...');
         fetch(url)
         .then(response => {
@@ -17,6 +24,7 @@ export const useDataFetch = (url) => {
             return response.json();
         })
         .then (data => {
+            console.log('Fetching recipe data...');
             setIsLoading(false);
             setRecipeData(data.results);
         })

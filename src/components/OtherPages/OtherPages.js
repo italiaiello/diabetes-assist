@@ -11,7 +11,7 @@ const OtherPages = props => {
 
     let route = props.route
 
-    const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=d464b770a6c2452cb7d56fc6ccea9eb5')
+    const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=d464b770a6c2452cb7d56fc6ccea9eb5', props.fetchData)
     const [index, setIndex] = useState(0);
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
 
@@ -41,7 +41,7 @@ const OtherPages = props => {
                 :
                 (
                     route === 'health' ?
-                    <Health />
+                    <Health onRouteChange={props.onRouteChange}/>
                     :
                     (
                         route === 'cybel' ?
