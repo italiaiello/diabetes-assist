@@ -227,10 +227,44 @@ button, abbr {
 }
 
 #routine {
+    height: 250px;
+    background-color: #003B46;
+    border-radius: 20px;
+}
+
+#routineHeader {
+    height: 60px;
     display: flex;
     justify-content: flex-start;
+    align-content: center;
     position: relative;
-    height: 300px;
+    padding: 20px;
+}
+
+#routineHeader h2 {
+    margin: 0;
+    margin-left: 30px;
+    height: auto;
+    color: white;
+}
+
+#routineHeader figure {
+    margin: 0 20px;
+    height: auto;
+}
+
+#routineHeader figure, #routineHeader h2 {
+    margin-top: 10px;
+}
+
+#routineContent {
+    display: flex;
+    justify-content: center;
+}
+
+.routineDay {
+    margin: 0 20px;
+    color: #C4DFE6;
 }
 
 #change {
@@ -249,7 +283,9 @@ button, abbr {
 }
 
 #bglGraph {
-    height: 300px;
+    height: 350px;
+    background-color: #003B46;
+    border-radius: 20px;
 }
 
 /* Appointment */
