@@ -5,6 +5,7 @@ import Health from '../Health/Health'
 import MealPlanner from '../MealPlanner/MealPlanner'
 import Appointment from '../Appointment/Appointment'
 import SelectMeal from '../MealPlanner/SelectMeal'
+import BookAppointment from '../Appointment/BookAppointment'
 import { useDataFetch } from '../../hooks/DisplayRecipes'
 
 const OtherPages = props => {
@@ -59,7 +60,12 @@ const OtherPages = props => {
                                     route === 'appointment' ?
                                     <Appointment onRouteChange={props.onRouteChange} />
                                     :
-                                    <Emergency onRouteChange={props.onRouteChange} />
+                                    (
+                                        route === 'appointmentTime' ?
+                                        <BookAppointment onRouteChange={props.onRouteChange} />
+                                        :
+                                        <Emergency onRouteChange={props.onRouteChange} />
+                                    )
                                 )
                             )
                         )

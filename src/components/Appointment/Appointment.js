@@ -6,6 +6,12 @@ import Squires from '../../images/Health_Professionals/SquiresBrown.png'
 import HomeButton from '../../images/Home.svg'
 
 const Appointment = props => {
+
+    const onProfessionalSelect = e => {
+        console.log(e.target["src"])
+        props.onRouteChange('appointmentTime')
+    }
+
     return (
         <div className="pageDisplay">
             <div className="backAndHeading">
@@ -23,7 +29,7 @@ const Appointment = props => {
                 <button>Recommended</button>
             </nav>
             <article className="healthProfessionals">
-                <article className="professional">
+                <article className="professional" onClick={onProfessionalSelect}>
                     <figure>
                         <img src={Alice} alt="Health Professional Alice" />
                     </figure>
@@ -34,7 +40,7 @@ const Appointment = props => {
                             Location: Ashfield Health Care
                         </p>
                     </div>
-                    <div className="rightArrow appointmentArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
+                    <div className="rightArrow appointmentArrow" onClick={props.onRouteChange.bind(this, 'appointmentTime')}></div>
                 </article>
                 <article className="professional">
                     <figure>

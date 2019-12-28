@@ -288,47 +288,6 @@ button, abbr {
     border-radius: 20px;
 }
 
-/* Appointment */
-
-.healthProfessionals {
-    border-bottom: 2px solid #003B46;
-    height: 50vh;
-    width: 80%;
-    overflow-y: scroll;
-}
-
-.professional {
-    background-color: #003B46;
-    border-radius: 20px;
-    width: 60%;
-    height: 200px;
-    margin: 10px auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-    transition: all .2s ease-in-out;
-}
-
-.professional:hover {
-    transform: scale(1.02);
-}
-
-.professional:active {
-    transform: scale(0.98);
-}
-
-.HPInfo {
-    color: white;
-    text-align: left;
-}
-
-.appointmentArrow {
-    position: absolute;
-    right: 30px;
-    border-left: 40px solid white
-}
-
 /* Meal Planner */
 
 .pageDisplay {
@@ -545,7 +504,78 @@ button, abbr {
     color: white;
 }
 
+/* Appointment */
 
+.healthProfessionals {
+    border-bottom: 2px solid #003B46;
+    height: 50vh;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+.professional {
+    background-color: #003B46;
+    border-radius: 20px;
+    width: 60%;
+    height: 200px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.professional:hover {
+    transform: scale(1.02);
+}
+
+.professional:active {
+    transform: scale(0.98);
+}
+
+.HPInfo {
+    color: white;
+    text-align: left;
+}
+
+.appointmentArrow {
+    position: absolute;
+    right: 30px;
+    border-left: 40px solid white
+}
+
+/* Book Appointment */
+
+#dateSelection {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#selectDate {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #003B46;
+    color: white;
+    border-radius: 60px;
+    position: relative;
+}
+
+#selectDate .leftArrow {
+    border-right: 40px solid white;
+    position: absolute;
+    left: 30px;
+}
+
+#selectDate .rightArrow {
+    border-left: 40px solid white;
+    position: absolute;
+    right: 30px;
+}
 
 /* Emergency Call */
 
