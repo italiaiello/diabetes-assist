@@ -50,7 +50,7 @@ const Health = props => {
                 </article>
                 <article id="account">
                     <figure>
-                        <img src={Person} />
+                        <img src={Person} alt="Person" />
                     </figure>
                     <p>Aysha<br/>Whitmore</p>
 

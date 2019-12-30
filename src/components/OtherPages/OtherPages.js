@@ -6,7 +6,6 @@ import MealPlanner from '../MealPlanner/MealPlanner'
 import Appointment from '../Appointment/Appointment'
 import SelectMeal from '../MealPlanner/SelectMeal'
 import BookAppointment from '../Appointment/BookAppointment'
-import StartScreen from '../StartScreen/StartScreen'
 import SignIn from '../SignIn/SignIn'
 import Register from '../Register/Register'
 import { useDataFetch } from '../../hooks/DisplayRecipes'
@@ -45,11 +44,11 @@ const OtherPages = props => {
                 :
                 (
                     route === 'signin' ?
-                    <SignIn />
+                    <SignIn onRouteChange={props.onRouteChange} />
                     :
                     (
                         route === 'register' ?
-                        <Register />
+                        <Register onRouteChange={props.onRouteChange} />
                         :
                         (
                             route === 'health' ?

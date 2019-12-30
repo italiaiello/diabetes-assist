@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from '../../images/DA_logo.svg'
 
-const SignIn = () => {
+const SignIn = props => {
     return (
         <article id="signin">
             <figure>
@@ -10,8 +10,11 @@ const SignIn = () => {
             <form className="form">
                 <input className="inputField" type="text" placeholder="Username" />
                 <input className="inputField" type="password" placeholder="Password" />
-                <button className="formButton">Sign In</button>
-                <p>Don't have an account?<br/><br/><span className="alternateFormLink">Register</span></p>
+                <button className="formButton" type="submit">Sign In</button>
+                <p>Don't have an account?
+                    <br/><br/>
+                    <span className="alternateFormLink" onClick={props.onRouteChange.bind(this, 'register')}>Register</span>
+                </p>
             </form>
         </article>
     )

@@ -52,7 +52,24 @@
     align-items: center;
 }
 
-.inputField {
+.form p {
+    color: #66A5AD;
+}
+
+.alternateFormLink {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.alternateFormLink:hover {
+    color: #C4DFE6;
+}
+
+.alternateFormLink:active {
+    color: #003B46;
+}
+
+.inputField, .dropdownWrapper {
     width: 550px;
     height: 80px;
     background-color: #C4DFE6;
@@ -60,8 +77,33 @@
     border: none;
     border-radius: 50px;
     padding: 0 30px;
-    margin: 5px 0;
+    margin: 10px auto;
     outline: none;
+    font-size: 20px;
+}
+
+.dropdown {
+    width:550px;
+    height:80px;
+    border:0px;
+    outline:none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #66A5AD
+}
+
+.inputField::placeholder { 
+    color: rgba(102, 165, 173, 0.5); 
+}
+
+/* Register */
+
+.hide {
+    display: none
+}
+
+.show {
+    display: block;
 }
 
 /* Home Page */
