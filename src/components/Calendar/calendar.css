@@ -1,3 +1,71 @@
+/* StartScreen */
+
+#startScreen {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#startScreenLogo p {
+    font-size: 50px;
+    margin-top: 0;
+    color: #003B46;
+}
+
+.formButton {
+    width: 320px;
+    height: 65px;
+    background-color: #003B46;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.formButton:hover {
+    transform: scale(1.05);
+}
+
+.formButton:active {
+    transform: scale(0.95, 0.95);
+}
+
+/* Sign In */
+
+#signin {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputField {
+    width: 550px;
+    height: 80px;
+    background-color: #C4DFE6;
+    color: #66A5AD;
+    border: none;
+    border-radius: 50px;
+    padding: 0 30px;
+    margin: 5px 0;
+    outline: none;
+}
+
+/* Home Page */
+
 .homePage {
     display: flex;
     justify-content: space-around;

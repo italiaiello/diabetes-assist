@@ -6,6 +6,9 @@ import MealPlanner from '../MealPlanner/MealPlanner'
 import Appointment from '../Appointment/Appointment'
 import SelectMeal from '../MealPlanner/SelectMeal'
 import BookAppointment from '../Appointment/BookAppointment'
+import StartScreen from '../StartScreen/StartScreen'
+import SignIn from '../SignIn/SignIn'
+import Register from '../Register/Register'
 import { useDataFetch } from '../../hooks/DisplayRecipes'
 
 const OtherPages = props => {
@@ -41,31 +44,42 @@ const OtherPages = props => {
                 <h1>Loading...</h1>
                 :
                 (
-                    route === 'health' ?
-                    <Health onRouteChange={props.onRouteChange}/>
+                    route === 'signin' ?
+                    <SignIn />
                     :
                     (
-                        route === 'cybel' ?
-                        <Cybel onRouteChange={props.onRouteChange} />
+                        route === 'register' ?
+                        <Register />
                         :
                         (
-                            route === 'meal' ?
-                            <MealPlanner recipeData={recipeData} handleClick={handleClick} onRouteChange={props.onRouteChange} />
+                            route === 'health' ?
+                            <Health onRouteChange={props.onRouteChange}/>
                             :
                             (
-                                route === 'mealSelect' ?
-                                <SelectMeal recipeData={slicedRecipeData} index={index} onRouteChange={props.onRouteChange} />
+                                route === 'cybel' ?
+                                <Cybel onRouteChange={props.onRouteChange} />
                                 :
                                 (
-                                    route === 'appointment' ?
-                                    <Appointment onRouteChange={props.onRouteChange} />
+                                    route === 'meal' ?
+                                    <MealPlanner recipeData={recipeData} handleClick={handleClick} onRouteChange={props.onRouteChange} />
                                     :
                                     (
-                                        route === 'appointmentTime' ?
-                                        <BookAppointment onRouteChange={props.onRouteChange} />
+                                        route === 'mealSelect' ?
+                                        <SelectMeal recipeData={slicedRecipeData} index={index} onRouteChange={props.onRouteChange} />
                                         :
-                                        <Emergency onRouteChange={props.onRouteChange} />
+                                        (
+                                            route === 'appointment' ?
+                                            <Appointment onRouteChange={props.onRouteChange} />
+                                            :
+                                            (
+                                                route === 'appointmentTime' ?
+                                                <BookAppointment onRouteChange={props.onRouteChange} />
+                                                :
+                                                <Emergency onRouteChange={props.onRouteChange} />
+                                            )
+                                        )
                                     )
+                    
                                 )
                             )
                         )
