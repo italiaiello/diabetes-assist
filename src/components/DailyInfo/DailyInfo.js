@@ -23,7 +23,7 @@ const DailyInfo = props => {
                     <h2>{date.toLocaleTimeString().substring(0, 5)}</h2>
                 </div>
                 <div id="signout">
-                    <button>Sign Out</button>
+                    <button onClick={props.onRouteChange.bind(this, 'start')} >Sign Out</button>
                 </div>
             </article>
             <h1 id="welcome">Welcome, <span>AYSHA</span></h1>

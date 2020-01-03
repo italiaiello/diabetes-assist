@@ -43,6 +43,17 @@
     flex-direction: column;
 }
 
+.logo {
+    margin: 0 auto;
+    width: 100px;
+    height: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
 .form {
     width: 40%;
     margin: 0 auto;
@@ -96,6 +107,16 @@
     color: rgba(102, 165, 173, 0.5); 
 }
 
+.signinError {
+    width: 60%;
+    border: 2px solid #003B46;
+    margin-bottom: 10px;
+}
+
+.signinError p {
+    color: white;
+}
+
 /* Register */
 
 .hide {
@@ -104,6 +125,31 @@
 
 .show {
     display: block;
+}
+
+.formError {
+    width: 60%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formError p {
+    color: white;
+    font-size: 20px;
+}
+
+.formError .errorIcon {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.formError .errorIcon img {
+    width: 50px;
+    height: 50px;
 }
 
 /* Home Page */

@@ -48,7 +48,7 @@ const OtherPages = props => {
                     :
                     (
                         route === 'register' ?
-                        <Register onRouteChange={props.onRouteChange} />
+                        <Register onRouteChange={props.onRouteChange} loadUser={props.loadUser} />
                         :
                         (
                             route === 'health' ?
