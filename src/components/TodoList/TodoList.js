@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import ListItems from './ListItems'
 
-const TodoList = () => {
+const TodoList = props => {
 
-    const [items, setItems] = useState([]);
-    const [currentItem, setCurrentItem] = useState({text: '', key: ''})
+    const [currentItem, setCurrentItem] = useState('')
 
     const handleInput = e => {
-        setCurrentItem({text: e.target.value, key: Date.now()})
+        setCurrentItem(e.target.value)
     }
 
     const addItem = () => {
-        const newItem = currentItem;
-        console.log(newItem)
-        if (newItem.text !== "") {
-            const newItems = [...items, newItem];
-            setItems(newItems);
-            setCurrentItem({
-                text: '',
-                key: ''
-            })
+        if (currentItem !== "") {
+            const newItems = [...props.todoTasks, currentItem];
+            props.setTodoTasks(newItems);
+            setCurrentItem('')
         }
-        setCurrentItem({text: '', key: ''})
+        setCurrentItem('')
+        console.log(props.todoTasks)
     }
 
     const searchWithEnterKey = (e) => {
@@ -33,11 +28,11 @@ const TodoList = () => {
 
     return (
         <div>
-            <ListItems items={items}/>
+            <ListItems todoTasks={props.todoTasks}/>
             <article id="addTask">
                 <button type="submit" onClick={addItem}>+</button>
                 <input type="text" onKeyPress={searchWithEnterKey} placeholder="Enter text" 
-                    value={currentItem.text} onChange={handleInput}
+                    value={currentItem} onChange={handleInput}
                 />
             </article>
         </div>

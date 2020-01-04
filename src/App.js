@@ -22,6 +22,9 @@ const App = () => {
     height: '',
     diagnosis: ''
   })
+  
+  const [todoTasks, setTodoTasks] = useState([])
+  const [isSigningOut, setIsSigningOut] = useState(false)
 
   const onRouteChange = (route) => {
     route === 'meal' ? setFetchData(true) : setFetchData(false)
@@ -44,20 +47,34 @@ const App = () => {
   return (
     <div className="App">
       {
-        route === 'start' ?
-        <StartScreen onRouteChange={onRouteChange} />
+        isSigningOut ? 
+        <h1>Signing Out...</h1>
         :
         (
-        route === 'home' ?
-          <div>
-            <div className="homePage">
-            <ReactCalendar />
-            <DailyInfo onRouteChange={onRouteChange} userName={user.name}/>
+          route === 'start' ?
+          <StartScreen onRouteChange={onRouteChange} />
+          :
+          (
+            route === 'home' ?
+            <div>
+              <div className="homePage">
+              <ReactCalendar />
+              <DailyInfo onRouteChange={onRouteChange} 
+                        userName={user.name} 
+                        userEmail={user.email}
+                        todoTasks={todoTasks} 
+                        setTodoTasks={setTodoTasks}
+                        setIsSigningOut={setIsSigningOut}
+              />
+              </div>
+              <Navigation onRouteChange={onRouteChange} todoTasks={todoTasks} />
             </div>
-            <Navigation onRouteChange={onRouteChange} />
-          </div>
-        :
-        <OtherPages route={route} onRouteChange={onRouteChange} fetchData={fetchData} loadUser={loadUser} />
+            :
+            <OtherPages route={route} 
+                        onRouteChange={onRouteChange} 
+                        fetchData={fetchData} 
+                        loadUser={loadUser} />
+          )
         )
       }
     </div>

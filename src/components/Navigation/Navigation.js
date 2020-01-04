@@ -6,11 +6,17 @@ import CybelIcons from '../../images/Cybel.svg';
 import EmergencyIcon from '../../images/Emergency.svg';
 
 const Navigation = props => {
+
+    const onButtonClick = (route) => {
+        console.log(props.todoTasks)
+        props.onRouteChange(route)
+    }
+
     return (
         <nav id="navigationBar">
             <div id="navButtons">
                 <figure>
-                    <img src={HealthIcon} alt="Icon for My Health section" onClick={props.onRouteChange.bind(this, 'health')} />
+                    <img src={HealthIcon} alt="Icon for My Health section" onClick={onButtonClick.bind(this, 'health')} />
                     <p>My Health</p>
                 </figure>
                 <figure>

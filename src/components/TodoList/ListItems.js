@@ -2,11 +2,13 @@ import React from 'react';
 
 const ListItems = props => {
 
-    const listItems = props.items.map(item => {
+    console.log(props.todoTasks)
+
+    const listItems = props.todoTasks.map((task, i) => {
         return (
-            <div className="list" key={item.key}>
-                <div class="circleButton"></div>
-                <p>{item.text}</p>
+            <div className="list" key={i}>
+                <div className="circleButton"></div>
+                <p>{task}</p>
             </div>
         )
     })

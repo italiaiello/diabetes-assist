@@ -5,6 +5,7 @@ const DailyInfo = props => {
 
     
     const [date, setDate] = useState(new Date())
+    const name = props.userName.toUpperCase();
 
     useEffect(() => {
         const time = setInterval(() => tick(), 1000)
@@ -15,6 +16,27 @@ const DailyInfo = props => {
     const tick = () => {
         setDate(new Date())
     }
+
+    const onSignOut = () => {
+        props.setIsSigningOut(true)
+        fetch('http://localhost:3000/signout', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: props.userEmail,
+                tasks: props.todoTasks
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data === 'success') {
+                props.setIsSigningOut(false)
+                props.onRouteChange('start')
+            }
+        })
+        .catch (err => console.log(err));
+        
+    }
         
     return (
         <section id="dailyInfo">
@@ -23,12 +45,12 @@ const DailyInfo = props => {
                     <h2>{date.toLocaleTimeString().substring(0, 5)}</h2>
                 </div>
                 <div id="signout">
-                    <button onClick={props.onRouteChange.bind(this, 'start')} >Sign Out</button>
+                    <button onClick={onSignOut} >Sign Out</button>
                 </div>
             </article>
-            <h1 id="welcome">Welcome, <span>AYSHA</span></h1>
+            <h1 id="welcome">Welcome, <span>{name}</span></h1>
             <h2 id="today">TODAY</h2>
-            <TodoList />
+            <TodoList todoTasks={props.todoTasks} setTodoTasks={props.setTodoTasks} />
         </section>
     )
 }
