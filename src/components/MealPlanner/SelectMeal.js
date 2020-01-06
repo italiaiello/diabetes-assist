@@ -3,12 +3,11 @@ import HomeButton from '../../images/Home.svg';
 
 const SelectMeal = props => {
 
-    const headingArray = ["Breakfast", "Lunch", "Dinner"]
-    const [counter, setCounter] = useState(0)
-
-    console.log(props.index)
-
     console.log(props.recipeData)
+
+    const headingArray = ["Breakfast", "Lunch", "Dinner"];
+    const [counter, setCounter] = useState(0)
+    const [showOptions, setShowOptions] = useState(false)
 
     const changeMeal = (prevOrNext) => {
         if (prevOrNext === 'next') {
@@ -17,20 +16,20 @@ const SelectMeal = props => {
             } else {
                 setCounter(counter + 1)
             }
-            console.log(counter)
         } else if (prevOrNext === 'prev') {
             if (counter === 0) {
-                setCounter(2);
+                setCounter(2)
             } else {
                 setCounter(counter - 1)
             }
-            console.log(counter)
         }
 
         return counter
     }
 
-    console.log(`${props.recipeData[0].imageUrls[0]}`)
+    const toggleOptions = () => {
+        setShowOptions(!showOptions)
+    }
 
     return (
         <div className="pageDisplay">
@@ -52,11 +51,15 @@ const SelectMeal = props => {
             <article className="availableMeals">
                 <div className="leftArrow" onClick={changeMeal.bind(this, 'prev')}></div>
                 <article className="foodCard">
-                    <figure>
-                        <img src={`https://spoonacular.com/recipeImages/${props.recipeData[counter].imageUrls[0]}`} alt={props.recipeData[counter].title} />
-                    </figure>
-                    <div className="foodName">
+                    <div className={!showOptions ? "foodName" : "foodName showOptions"}>
+                        <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>
                         <p>{props.recipeData[counter].title}</p>
+                        <div className={showOptions ? "mealInfo show" : "hide"}>
+                            <p>{`Ready in: ${props.recipeData[counter].readyInMinutes} mins`}
+                                <br/>
+                                {`Servings: ${props.recipeData[counter].servings}`}                               
+                            </p>
+                        </div>
                     </div>
                 </article>
                 <div className="rightArrow" onClick={changeMeal.bind(this, 'next')}></div>

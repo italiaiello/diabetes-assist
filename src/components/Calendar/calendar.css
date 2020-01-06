@@ -623,24 +623,13 @@ button, abbr {
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     background-color: #C4DFE6;
+    background-image: url('https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 25px;
-}
-
-.foodCard figure {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-.foodCard figure img {
-    display: block;
-    max-width: 300px; 
-    height: 300px;
 }
 
 .foodName {
@@ -650,13 +639,52 @@ button, abbr {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.showOptions {
+    height: 250px;
+}
+
+.mealInfo {
+    width: 80%;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.arrow-up:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.arrow-up:active {
+    transform: scale(0.95, 0.95);
 }
 
 .foodName p {
     width: 80%;
     margin: 0 auto;
+    margin-top: 20px;
     color: white;
 }
 
