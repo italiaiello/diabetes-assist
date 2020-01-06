@@ -643,14 +643,23 @@ button, abbr {
     justify-content: center;
     align-items: center;
     transition: all .2s ease-in-out;
+    position: relative;
 }
 
 .showOptions {
     height: 250px;
+    justify-content: flex-start;
+}
+
+.showOptions .arrow-down {
+    margin-top: 20px;
 }
 
 .mealInfo {
     width: 80%;
+    margin-top: 10px;
+    color: white;
+    overflow-y: auto;
 }
 
 .arrow-up {
@@ -661,6 +670,8 @@ button, abbr {
     border-bottom: 10px solid white;
     transition: all .2s ease-in-out;
     cursor: pointer;
+    position: absolute;
+    top: 20px;
 }
 
 .arrow-down {
@@ -673,19 +684,40 @@ button, abbr {
     cursor: pointer;
 }
 
-.arrow-up:hover {
+.arrow-up:hover, .arrow-down:hover {
     transform: scale(1.1, 1.1);
 }
 
-.arrow-up:active {
+.arrow-up:active, .arrow-down:active {
     transform: scale(0.95, 0.95);
 }
 
 .foodName p {
     width: 80%;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 10px;
     color: white;
+}
+
+.seeRecipe {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    background-color: #66A5AD;
+    color: white;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.seeRecipe:hover {
+    transform: scale(1.05, 1.05)
+}
+
+.seeRecipe:active {
+    transform: scale(0.95, 0.95);
 }
 
 /* Appointment */
@@ -759,6 +791,10 @@ button, abbr {
     border-left: 40px solid white;
     position: absolute;
     right: 30px;
+}
+
+#datePicker {
+    visibility: none;
 }
 
 /* Emergency Call */

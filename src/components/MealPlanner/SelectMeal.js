@@ -55,11 +55,13 @@ const SelectMeal = props => {
                         <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>
                         <p>{props.recipeData[counter].title}</p>
                         <div className={showOptions ? "mealInfo show" : "hide"}>
-                            <p>{`Ready in: ${props.recipeData[counter].readyInMinutes} mins`}
-                                <br/>
-                                {`Servings: ${props.recipeData[counter].servings}`}                               
+                            <h3>Meal Information</h3>
+                            <p>{`Ready in: ${props.recipeData[counter].readyInMinutes} mins
+                                | Servings: ${props.recipeData[counter].servings}`}                              
                             </p>
+                            <button className="seeRecipe">See Recipe</button>
                         </div>
+                        
                     </div>
                 </article>
                 <div className="rightArrow" onClick={changeMeal.bind(this, 'next')}></div>

@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Calendar from '../../images/calendar.svg'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+import "./DatePicker.css";
 
 const BookAppointment = props => {
+
+    const [startDate, setStartDate] = useState(new Date());
+
+    console.log(startDate)
+
     return (
         <article className="pageDisplay">
             <div className="backAndHeading">
@@ -23,13 +31,20 @@ const BookAppointment = props => {
                     <p>{Date.now()}</p>
                     <div className="rightArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
                 </div>
-                <figure>
-                    <img src={Calendar} alt="Calendar button" />
-                </figure>
+                <label>
+                    <DatePicker
+                        id="datePicker"
+                        showPopperArrow={false}
+                        selected={startDate}
+                        onChange={date => setStartDate(date)}
+                        dateFormat="MMMM d, yyyy"
+                    />
+                    <figure>
+                        <img src={Calendar} alt="Calendar button" />
+                    </figure>
+                </label>
             </div>
-            <article>
-                <div className=""></div>
-            </article>
+            <button>Submit Stuff</button>
         </article>
     )
 }
