@@ -8,7 +8,37 @@ const BookAppointment = props => {
 
     const [startDate, setStartDate] = useState(new Date());
 
-    console.log(startDate)
+    let newDate = new Intl.DateTimeFormat('en-AU', {
+        month: 'long',
+        weekday: 'long',
+        day: '2-digit'
+    }).format(startDate)
+
+    const [dateText, setDateText] = useState(newDate);
+    console.log(dateText)
+
+    const handleDateIncrement = () => {
+        startDate.setDate(startDate.getDate() + 1)
+        newDate = new Intl.DateTimeFormat('en-AU', {
+            month: 'long',
+            weekday: 'long',
+            day: '2-digit'
+        }).format(startDate)
+        setDateText(newDate)
+    }
+
+    const handleDatePick = date => {
+        setStartDate(date)
+        console.log(date)
+        newDate = new Intl.DateTimeFormat('en-AU', {
+            month: 'long',
+            weekday: 'long',
+            day: '2-digit'
+        }).format(startDate)
+        setDateText(newDate)
+    }
+
+    
 
     return (
         <article className="pageDisplay">
@@ -27,17 +57,17 @@ const BookAppointment = props => {
                     <p>Camille Green</p>
                 </figure>
                 <div id="selectDate">
-                    <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
-                    <p>{Date.now()}</p>
-                    <div className="rightArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                    <div className="leftArrow" onClick={handleDateIncrement}></div>
+                    <p>{dateText}</p>
+                    <div className="rightArrow" onClick={handleDateIncrement}></div>
                 </div>
                 <label>
                     <DatePicker
                         id="datePicker"
                         showPopperArrow={false}
                         selected={startDate}
-                        onChange={date => setStartDate(date)}
-                        dateFormat="MMMM d, yyyy"
+                        onChange={date => handleDatePick(date)}
+                        dateFormat="dddd, MM yyyy"
                     />
                     <figure>
                         <img src={Calendar} alt="Calendar button" />

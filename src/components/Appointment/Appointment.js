@@ -4,8 +4,12 @@ import Camille from '../../images/Health_Professionals/CamilleGreen.png'
 import Danielle from '../../images/Health_Professionals/DanielleBrown.png'
 import Squires from '../../images/Health_Professionals/SquiresBrown.png'
 import HomeButton from '../../images/Home.svg'
+import BookAppointment from '../Appointment/BookAppointment'
+import HealthProfessionals from '../../json/test.json'
 
 const Appointment = props => {
+
+    const images = require.context('../../images/Health_Professionals', true);
 
     const onProfessionalSelect = e => {
         console.log(e.target["src"])
@@ -13,6 +17,9 @@ const Appointment = props => {
     }
 
     return (
+        props.route === 'appointmentTime' ?
+        <BookAppointment onRouteChange={props.onRouteChange} />
+        :
         <div className="pageDisplay">
             <div className="backAndHeading">
                 <div className="sectionHeading">
@@ -29,20 +36,33 @@ const Appointment = props => {
                 <button>Recommended</button>
             </nav>
             <article className="healthProfessionals">
-                <article className="professional" onClick={onProfessionalSelect}>
-                    <figure>
-                        <img src={Alice} alt="Health Professional Alice" />
-                    </figure>
-                    <div className="HPInfo">
-                        <h3>Alice Manini</h3>
-                        <p>Specialty: Diabetes Health Professional
-                            <br/>
-                            Location: Ashfield Health Care
-                        </p>
-                    </div>
-                    <div className="rightArrow appointmentArrow" onClick={props.onRouteChange.bind(this, 'appointmentTime')}></div>
-                </article>
-                <article className="professional">
+                
+                {
+                    HealthProfessionals.map(professional => {
+
+                        return (
+                            <article key={professional.id} className="professional" onClick={onProfessionalSelect}>
+                                <figure>
+                                    <img src={images(`./${professional.image}`)} 
+                                        alt={`Health Professional ${professional.first_name}`} 
+                                    />
+                                </figure>
+                                <div className="HPInfo">
+                                    <h3>{`${professional.first_name} ${professional.last_name}`}</h3>
+                                    <p>{`Specialty: ${professional.specialty}`}
+                                        <br />
+                                        {`Location: ${professional.location}`}
+                                    </p>
+                                </div>
+                                <div className="rightArrow appointmentArrow" 
+                                    onClick={props.onRouteChange.bind(this, 'appointmentTime')}>
+                                </div>
+                            </article>
+                        )
+                    })
+                }
+
+                {/* <article className="professional">
                     <figure>
                         <img src={Camille} alt="Health Professional Camille" />
                     </figure>
@@ -50,7 +70,7 @@ const Appointment = props => {
                         <h3>Camille Green</h3>
                         <p>Specialty: Diabetes Health Professional
                             <br/>
-                            Location: Camille&#39;s Gealth Centre
+                            Location: Camille&#39;s Health Centre
                         </p>
                     </div>
                     <div className="rightArrow appointmentArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
@@ -61,7 +81,7 @@ const Appointment = props => {
                     </figure>
                     <div className="HPInfo">
                         <h3>Danielle Brown</h3>
-                        <p>Specialty: Diabetes Health Professional
+                        <p>Specialty: Psychologist
                             <br/>
                             Location: Strathfield Hospital
                         </p>
@@ -76,16 +96,17 @@ const Appointment = props => {
                         <h3>Squires Brown</h3>
                         <p>Specialty: Diabetes Health Professional
                             <br/>
-                            Location: Camille&#39;s Gealth Centre
+                            Location: Camille&#39;s Health Centre
                         </p>
                     </div>
                     <div className="rightArrow appointmentArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
-                </article>
-            </article>
+                </article>*/}
+            </article> 
             <figure className="homeButton">
                 <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')}/>
             </figure>
         </div>
+        
     )
 }
 

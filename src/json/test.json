@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "gender": "Female",
+      "first_name": "Alice",
+      "last_name": "Manini",
+      "specialty": "Diabetes Health Professional",
+      "location": "Ashfield Health Centre",
+      "image": "AliceManini.png"
+    }, 
+    {
+      "id": 2,
+      "gender": "Female",
+      "first_name": "Camille",
+      "last_name": "Green",
+      "specialty": "Diabetes Health Professional",
+      "location": "Camille's Health Centre",
+      "image": "CamilleGreen.png"
+    },
+    {
+        "id": 3,
+        "gender": "Female",
+        "first_name": "Danielle",
+        "last_name": "Brown",
+        "specialty": "Psychologist",
+        "location": "Strathfield Hospital",
+        "image": "DanielleBrown.png"
+    },
+    {
+        "id": 4,
+        "gender": "Male",
+        "first_name": "Squires",
+        "last_name": "Brown",
+        "specialty": "Diabetes Health Professional",
+        "location": "Camille's Health Centre",
+        "image": "SquiresBrown.png"
+    }
+]

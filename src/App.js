@@ -3,10 +3,9 @@ import DailyInfo from './components/DailyInfo/DailyInfo';
 import Navigation from './components/Navigation/Navigation';
 import OtherPages from './components/OtherPages/OtherPages';
 import StartScreen from './components/StartScreen/StartScreen';
+import ReactCalendar from './components/Calendar/calendar';
 
 import './App.css';
-
-import ReactCalendar from './components/Calendar/calendar';
 
 const App = () => {
 
