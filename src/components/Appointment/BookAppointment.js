@@ -13,8 +13,6 @@ const BookAppointment = props => {
     const images = require.context('../../images/Health_Professionals', true);
     const idNum = parseInt(props.professionalId) - 1;
 
-    console.log(props.professionalId, idNum)
-
     const [startDate, setStartDate] = useState(new Date());
 
     let newDate = new Intl.DateTimeFormat('en-AU', {

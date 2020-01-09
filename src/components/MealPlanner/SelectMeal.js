@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Recipe from './Recipe'
 import HomeButton from '../../images/Home.svg';
 
 const SelectMeal = props => {
@@ -31,7 +32,15 @@ const SelectMeal = props => {
         setShowOptions(!showOptions)
     }
 
+    const onMealSelect = (e) => {
+        console.log(e.currentTarget.dataset.id)
+        props.onRouteChange('recipe')
+    }
+
     return (
+        props.route === 'recipe' ?
+        <Recipe counter={counter} recipeData={props.recipeData} onRouteChange={props.onRouteChange} />
+        :
         <div className="pageDisplay">
             <div className="backAndHeading">
                 <div className="sectionHeading">
@@ -59,7 +68,7 @@ const SelectMeal = props => {
                             <p>{`Ready in: ${props.recipeData[counter].readyInMinutes} mins
                                 | Servings: ${props.recipeData[counter].servings}`}                              
                             </p>
-                            <button className="seeRecipe">See Recipe</button>
+                            <button className="seeRecipe" onClick={onMealSelect}>See Recipe</button>
                         </div>
                         
                     </div>

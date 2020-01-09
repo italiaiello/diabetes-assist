@@ -9,7 +9,7 @@ import './App.css';
 
 const App = () => {
 
-  const [route, setRoute] = useState('appointmentTime')
+  const [route, setRoute] = useState('home')
   const [fetchData, setFetchData] = useState(false)
   const [user, setUser] = useState({
     id: '',

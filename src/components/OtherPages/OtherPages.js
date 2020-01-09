@@ -12,7 +12,6 @@ import { useDataFetch } from '../../hooks/DisplayRecipes'
 const OtherPages = props => {
 
     let route = props.route
-
     const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=d464b770a6c2452cb7d56fc6ccea9eb5', props.fetchData)
     const [index, setIndex] = useState(0);
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
@@ -59,22 +58,23 @@ const OtherPages = props => {
                                 :
                                 (
                                     route === 'meal' ?
-                                    <MealPlanner recipeData={recipeData} handleClick={handleClick} onRouteChange={props.onRouteChange} />
+                                    <MealPlanner recipeData={recipeData} 
+                                                    handleClick={handleClick} 
+                                                        onRouteChange={props.onRouteChange} />
                                     :
                                     (
-                                        route === 'mealSelect' ?
-                                        <SelectMeal recipeData={slicedRecipeData} index={index} onRouteChange={props.onRouteChange} />
+                                        route === 'mealSelect' || route === 'recipe' ?
+                                        <SelectMeal recipeData={slicedRecipeData} 
+                                                        index={index} 
+                                                            onRouteChange={props.onRouteChange} 
+                                                                route={route} />
                                         :
                                         (
-                                            route === 'appointment' ?
+                                            route === 'appointment' || route === 'appointmentTime' ?
                                             <Appointment route={route} onRouteChange={props.onRouteChange} />
-                                            :
-                                            (
-                                                route === 'appointmentTime' ?
-                                                <Appointment route={route} onRouteChange={props.onRouteChange} />
-                                                :
-                                                <Emergency onRouteChange={props.onRouteChange} />
-                                            )
+                                            :                                   
+                                            <Emergency onRouteChange={props.onRouteChange} />
+                                    
                                             
                                         )
                                     )

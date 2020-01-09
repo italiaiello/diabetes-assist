@@ -8,7 +8,6 @@ export const useDataFetch = (url, dependencies) => {
 
     useEffect(() => {
         setIsLoading(true);
-        console.log(dependencies)
 
         if (dependencies === false) {
             setIsLoading(false);
@@ -24,7 +23,6 @@ export const useDataFetch = (url, dependencies) => {
             return response.json();
         })
         .then (data => {
-            console.log('Fetching recipe data...');
             setIsLoading(false);
             setRecipeData(data.results);
         })
