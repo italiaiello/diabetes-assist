@@ -767,11 +767,30 @@ button, abbr {
     width: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
+}
+
+#professionalImage {
+    margin: 16px 0;
+}
+
+#professionalImage img {
+    width: 70%;
+    height: auto;
+}
+
+#professionalImage p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: white;
 }
 
 #selectDate {
     width: 80%;
+    height: 150px;
+    margin: 0 20px;
+    margin-right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -779,6 +798,10 @@ button, abbr {
     color: white;
     border-radius: 60px;
     position: relative;
+}
+
+#selectDate p {
+    font-size: 25px;
 }
 
 #selectDate .leftArrow {
@@ -793,8 +816,69 @@ button, abbr {
     right: 30px;
 }
 
-#datePicker {
-    visibility: none;
+#calendarIcon {
+    cursor: pointer;
+}
+
+#bookAppointment {
+    width: 380px;
+    height: 75px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #003B46;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    outline: none;
+}
+
+#bookAppointment:active {
+    transform: scale(0.95, 0.95)
+}
+
+/* Time Slots */
+
+#timeSelect {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    color: white;
+}
+
+.timeAvailable {
+    width: 90px;
+    height: auto;
+    margin: 0 10px;
+}
+
+.timeSlot {
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.available .timeSlot {
+    background-color: #003B46;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.not-available .timeSlot {
+    background-color: #C4DFE6;
+}
+
+.available .timeSlot:hover {
+    transform: scale(1.05, 1.05)
+}
+
+.available .timeSlot:active {
+    transform: scale(0.95, 0.95)
+}
+
+.available .slotSelected {
+    background-color: green;
 }
 
 /* Emergency Call */

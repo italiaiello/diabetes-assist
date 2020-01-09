@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
 
-import './calendar.css';
+import './styles.css';
  
 class ReactCalendar extends Component {
   state = {

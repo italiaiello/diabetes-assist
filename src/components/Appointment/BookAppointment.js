@@ -1,45 +1,67 @@
 import React, { useState } from 'react'
-import Calendar from '../../images/calendar.svg'
 import DatePicker from 'react-datepicker'
+import SelectTime from './SelectTime'
+import Calendar from '../../images/calendar.svg'
+import HomeButton from '../../images/Home.svg'
+import HealthProfessionals from '../../json/test.json'
+
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css";
 
 const BookAppointment = props => {
+
+    const images = require.context('../../images/Health_Professionals', true);
+    const idNum = parseInt(props.professionalId) - 1;
+
+    console.log(props.professionalId, idNum)
 
     const [startDate, setStartDate] = useState(new Date());
 
     let newDate = new Intl.DateTimeFormat('en-AU', {
         month: 'long',
         weekday: 'long',
-        day: '2-digit'
+        day: '2-digit',
+        year: 'numeric'
     }).format(startDate)
 
     const [dateText, setDateText] = useState(newDate);
     console.log(dateText)
+    const [timeSlot, setTimeSlot] = useState("")
 
-    const handleDateIncrement = () => {
-        startDate.setDate(startDate.getDate() + 1)
+    const handleDateIncrement = (operation) => {
+        if (operation === "add") {
+            startDate.setDate(startDate.getDate() + 1)
+        } else if (operation === "minus") {
+            startDate.setDate(startDate.getDate() - 1)
+        }
+
         newDate = new Intl.DateTimeFormat('en-AU', {
             month: 'long',
             weekday: 'long',
-            day: '2-digit'
+            day: '2-digit',
+            year: 'numeric'
         }).format(startDate)
         setDateText(newDate)
     }
 
     const handleDatePick = date => {
         setStartDate(date)
-        console.log(date)
         newDate = new Intl.DateTimeFormat('en-AU', {
             month: 'long',
             weekday: 'long',
-            day: '2-digit'
+            day: '2-digit',
+            year: 'numeric'
         }).format(startDate)
-        setDateText(newDate)
+        pickDate(newDate)
+    }
+
+    const pickDate = date => {
+        setDateText(date)
     }
 
     
 
+    
     return (
         <article className="pageDisplay">
             <div className="backAndHeading">
@@ -52,14 +74,19 @@ const BookAppointment = props => {
                 </div>
             </div>
             <div id="dateSelection">
-                <figure>
-                    <img src="hello" alt="Camille Green" />
-                    <p>Camille Green</p>
+                <figure id="professionalImage">
+                    <img src={images(`./${HealthProfessionals[idNum].image}`)} 
+                        alt={`${HealthProfessionals[idNum].first_name} 
+                        ${HealthProfessionals[idNum].last_name}`} 
+                    />
+                    <p>{`${HealthProfessionals[idNum].first_name} 
+                        ${HealthProfessionals[idNum].last_name}`}
+                    </p>
                 </figure>
                 <div id="selectDate">
-                    <div className="leftArrow" onClick={handleDateIncrement}></div>
+                    <div className="leftArrow" onClick={handleDateIncrement.bind(this, "minus")}></div>
                     <p>{dateText}</p>
-                    <div className="rightArrow" onClick={handleDateIncrement}></div>
+                    <div className="rightArrow" onClick={handleDateIncrement.bind(this, "add")}></div>
                 </div>
                 <label>
                     <DatePicker
@@ -67,14 +94,18 @@ const BookAppointment = props => {
                         showPopperArrow={false}
                         selected={startDate}
                         onChange={date => handleDatePick(date)}
-                        dateFormat="dddd, MM yyyy"
+                        dateFormat="MMMM, d yyyy"
                     />
-                    <figure>
+                    <figure id="calendarIcon">
                         <img src={Calendar} alt="Calendar button" />
                     </figure>
-                </label>
+                </label>            
             </div>
-            <button>Submit Stuff</button>
+            <SelectTime professionalId={props.professionalId} setTimeSlot={setTimeSlot}/>
+            <button id="bookAppointment">Book Appointment</button>
+            <figure className="homeButton">
+                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+            </figure>
         </article>
     )
 }
