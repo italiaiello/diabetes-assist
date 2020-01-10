@@ -720,6 +720,108 @@ button, abbr {
     transform: scale(0.95, 0.95);
 }
 
+    /* Recipe */
+
+#recipeSection {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+#mealImage {
+    width: 40%;
+    margin: 0;
+    height: 200px;
+}
+
+#mealImage figure {
+    width: 70%;
+    margin: 0 auto;
+    height: auto;
+}
+
+#mealImage figure img {
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+}
+
+#sendButton {
+    margin-top: 20px;
+    width: 300px;
+    height: 100px;
+    font-size: 15px;
+    color: #C4DFE6;
+    font-weight: bold;
+    background-color: #003B46;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    padding: 0 30px;
+}
+
+#sendButton:hover {
+    transform: scale(1.05, 1.05)
+}
+
+#sendButton:active {
+    transform: scale(0.95, 0.95)
+}
+
+#recipeInfoContainer {
+    font-family: Montserrat;
+    width: 50%;
+    height: 75vh;
+    background-color: #003B46;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#recipeInfoContainer h3 {
+    font-size: 35px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #C4DFE6;
+}
+
+.recipeInfo {
+    height: 85%;
+    overflow-y: scroll;
+    padding: 0 30px;
+}
+
+.recipeInfo p {
+    text-align: left;
+}
+
+.step {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.stepNumber {
+    font-size: 30px;
+    font-weight: bold;
+    color: #C4DFE6;
+    margin: 0;
+    width: 30px;
+}
+
+.stepDesc {
+    color: #66A5AD;
+    margin: 0;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+
+
 /* Appointment */
 
 .healthProfessionals {

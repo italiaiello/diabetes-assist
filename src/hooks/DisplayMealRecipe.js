@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export const useRecipeFetch = (url, dependencies) => {
 
@@ -16,14 +16,14 @@ export const useRecipeFetch = (url, dependencies) => {
         .then(data => {
             console.log(data)
             setIsLoading(false)
-            setRecipeData(data.results)
+            setRecipeData(data)
         })
         .catch(err => {
             console.log(err)
             setIsLoading(false)
             setRecipeData('Not found')
         })
-    })
+    }, [url])
 
     return [isLoading, recipeData]
 
