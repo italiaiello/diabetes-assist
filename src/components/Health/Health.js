@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HomeButton from '../../images/Home.svg'
 import Bell from '../../images/notifications.svg'
 import Person from '../../images/Person.png'
 import Routine from '../Health/Routine'
+import Modal from '../Modal/Modal'
+import RoutineEdit from './RoutineEdit'
 
 const Health = props => {
 
     let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
+    const [isProfileOpen, setIsProfileOpen] = useState(false)
+
+    const toggleModal = () => {
+        console.log(isProfileOpen)
+        setIsProfileOpen(!isProfileOpen)
+    }
 
     return (
         <article className="pageDisplay">
@@ -20,6 +28,12 @@ const Health = props => {
                     <h1>My Health</h1>
                 </div>
             </div>
+            {
+                isProfileOpen &&
+                <Modal>
+                    <RoutineEdit setIsProfileOpen={setIsProfileOpen} toggleModal={toggleModal}/>
+                </Modal>
+            }
             <article id="healthSection">
                 <article id="healthData">
                     <article id="routine">
@@ -28,7 +42,7 @@ const Health = props => {
                             <figure>
                                 <img src={Bell} alt="Notifications bell" />
                             </figure>
-                            <button id="change">Change</button>
+                            <button id="change" onClick={toggleModal}>Change</button>
                         </div>
                         <div id="routineContent">
                             {

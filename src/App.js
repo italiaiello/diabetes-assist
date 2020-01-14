@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import OtherPages from './components/OtherPages/OtherPages';
 import StartScreen from './components/StartScreen/StartScreen';
 import ReactCalendar from './components/Calendar/calendar';
+import Modal from './components/Modal/Modal';
 
 import './App.css';
 
