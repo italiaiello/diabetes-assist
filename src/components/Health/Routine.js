@@ -6,8 +6,13 @@ const Routine = props => {
         <article>
             <div className="routineDay">
                 <h2>{props.dayOfWeek}</h2>
-                <p>{props.medication}</p>
-                <p>{props.medication}</p>
+                {
+                    props.routine.map(medication => {
+                        return (
+                            <p>{medication}</p>
+                        )
+                    })
+                }
             </div>
         </article>
     )

@@ -2,13 +2,22 @@ import React, { useState } from 'react'
 import HomeButton from '../../images/Home.svg'
 import Bell from '../../images/notifications.svg'
 import Person from '../../images/Person.png'
-import Routine from '../Health/Routine'
+import Routine from './Routine'
 import Modal from '../Modal/Modal'
 import RoutineEdit from './RoutineEdit'
 
 const Health = props => {
 
     let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+    let routineArray = [
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+        ['Metformin', 'Insulin'],
+    ]
 
     const [isProfileOpen, setIsProfileOpen] = useState(false)
 
@@ -31,7 +40,11 @@ const Health = props => {
             {
                 isProfileOpen &&
                 <Modal>
-                    <RoutineEdit setIsProfileOpen={setIsProfileOpen} toggleModal={toggleModal}/>
+                    <RoutineEdit toggleModal={toggleModal}
+                                daysOfWeek={daysOfWeek}
+                                routine={routineArray}
+
+                    />
                 </Modal>
             }
             <article id="healthSection">
@@ -50,8 +63,8 @@ const Health = props => {
                                     return (
                                         <Routine 
                                             key={i}
-                                            dayOfWeek={daysOfWeek[i]}
-                                            medication="Metformin"
+                                            dayOfWeek={day}
+                                            routine={routineArray[i]}
                                         />
                                     )
                                 })
