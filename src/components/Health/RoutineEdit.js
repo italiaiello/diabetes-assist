@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Routine from './Routine'
 import './RoutineEdit.css'
 
-const RoutineEdit = ({toggleModal, daysOfWeek, routine} ) => {
+const RoutineEdit = ({toggleModal, daysOfWeek, routine, setRoutine, isProfileOpen} ) => {
+
+    const [tempRoutine, setTempRoutine] = useState(routine)
+
+    const saveChanges = () => {
+        setRoutine(tempRoutine)
+        toggleModal()
+    }
+
     return (
         <article className="editRoutine-modal">
             <article className="modal-container">
@@ -17,15 +25,20 @@ const RoutineEdit = ({toggleModal, daysOfWeek, routine} ) => {
                             <Routine 
                                 key={i}
                                 dayOfWeek={day}
-                                routine={routine[i]}
+                                index={i}
+                                tempRoutine={tempRoutine}
+                                dailyRoutine={tempRoutine[i]}
+                                setTempRoutine={setTempRoutine}
+                                isProfileOpen={isProfileOpen}
                             />
+                                
                         )
                     })
                 }
                 </div>
                 <div className="modal-buttons">
                     <button className="modal-cancel" onClick={toggleModal}>Cancel</button>
-                    <button className="modal-save">Save</button>
+                    <button className="modal-save" onClick={saveChanges}>Save and Close</button>
                 </div>
             </article>
         </article>

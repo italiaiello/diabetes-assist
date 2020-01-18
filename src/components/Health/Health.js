@@ -9,15 +9,15 @@ import RoutineEdit from './RoutineEdit'
 const Health = props => {
 
     let daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
-    let routineArray = [
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-        ['Metformin', 'Insulin'],
-    ]
+    const [routine, setRoutine] = useState([
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                                ['Metformin', 'Insulin'],
+                                            ])
 
     const [isProfileOpen, setIsProfileOpen] = useState(false)
 
@@ -42,8 +42,9 @@ const Health = props => {
                 <Modal>
                     <RoutineEdit toggleModal={toggleModal}
                                 daysOfWeek={daysOfWeek}
-                                routine={routineArray}
-
+                                routine={routine}
+                                setRoutine={setRoutine}
+                                isProfileOpen={isProfileOpen}
                     />
                 </Modal>
             }
@@ -64,8 +65,10 @@ const Health = props => {
                                         <Routine 
                                             key={i}
                                             dayOfWeek={day}
-                                            routine={routineArray[i]}
-                                        />
+                                            routine={routine}
+                                            dailyRoutine={routine[i]}
+                                            isProfileOpen={isProfileOpen}
+                                        />  
                                     )
                                 })
                             }

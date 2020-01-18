@@ -395,6 +395,7 @@ button, abbr {
     align-content: center;
     position: relative;
     padding: 20px;
+    padding-bottom: 0;
 }
 
 #routineHeader h2 {
