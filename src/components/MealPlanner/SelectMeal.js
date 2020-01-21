@@ -1,29 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Recipe from './Recipe'
 import HomeButton from '../../images/Home.svg';
 
 const SelectMeal = props => {
 
     console.log(props.recipeData)
+    const mealImage = useRef()
 
     const headingArray = ["Breakfast", "Lunch", "Dinner"];
     const [counter, setCounter] = useState(0)
     const [showOptions, setShowOptions] = useState(false)
+    const [image, setImage] = useState({
+        'backgroundImage':`url(https://spoonacular.com/recipeImages/${props.recipeData[counter].image})`
+    })
+
+    const changeImage = (index) => {
+        setImage({
+            'backgroundImage':`url(https://spoonacular.com/recipeImages/${props.recipeData[index].image})`,
+            'backgroundSize': 'cover',
+            'backgroundRepeat': 'no-repeat'
+        })
+    }
 
     const changeMeal = (prevOrNext) => {
         if (prevOrNext === 'next') {
             if (counter === 2) {
                 setCounter(0)
+                changeImage(0)
             } else {
                 setCounter(counter + 1)
+                changeImage(counter + 1)
             }
         } else if (prevOrNext === 'prev') {
             if (counter === 0) {
                 setCounter(2)
+                changeImage(2)
             } else {
                 setCounter(counter - 1)
+                changeImage(counter - 1)
             }
         }
+
+        
 
         return counter
     }
@@ -59,7 +77,7 @@ const SelectMeal = props => {
             </nav>
             <article className="availableMeals">
                 <div className="leftArrow" onClick={changeMeal.bind(this, 'prev')}></div>
-                <article className="foodCard">
+                <article ref={mealImage} className="foodCard" style={image}>
                     <div className={!showOptions ? "foodName" : "foodName showOptions"}>
                         <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>
                         <p>{props.recipeData[counter].title}</p>

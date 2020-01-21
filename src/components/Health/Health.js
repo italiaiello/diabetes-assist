@@ -58,7 +58,7 @@ const Health = props => {
                             </figure>
                             <button id="change" onClick={toggleModal}>Change</button>
                         </div>
-                        <div id="routineContent">
+                        <div id="routineContent" className={isProfileOpen ? 'hide' : 'show'}>
                             {
                                 daysOfWeek.map((day, i) => {
                                     return (

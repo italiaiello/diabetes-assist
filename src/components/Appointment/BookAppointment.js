@@ -23,8 +23,14 @@ const BookAppointment = props => {
     }).format(startDate)
 
     const [dateText, setDateText] = useState(newDate);
-    console.log(dateText)
-    const [timeSlot, setTimeSlot] = useState("")
+    const [timeSlot, setTimeSlot] = useState("");
+    const [booking, setBooking] = useState({
+        'professional': '',
+        'date': '',
+        'time': ''
+    })
+    console.log(booking)
+
 
     const handleDateIncrement = (operation) => {
         if (operation === "add") {
@@ -55,6 +61,14 @@ const BookAppointment = props => {
 
     const pickDate = date => {
         setDateText(date)
+    }
+
+    const onSubmitBooking = () => {
+        setBooking({
+            'professional': props.professionalId,
+            'date': dateText,
+            'time': timeSlot
+        })
     }
 
     
@@ -100,7 +114,7 @@ const BookAppointment = props => {
                 </label>            
             </div>
             <SelectTime professionalId={props.professionalId} setTimeSlot={setTimeSlot}/>
-            <button id="bookAppointment">Book Appointment</button>
+            <button id="bookAppointment" onClick={onSubmitBooking}>Book Appointment</button>
             <figure className="homeButton">
                 <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
             </figure>

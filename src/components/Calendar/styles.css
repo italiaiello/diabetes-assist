@@ -419,6 +419,10 @@ button, abbr {
     justify-content: center;
 }
 
+#routineContent.hide {
+    visibility: hidden;
+}
+
 .routineDay {
     margin: 0 20px;
     color: #C4DFE6;
@@ -648,9 +652,6 @@ button, abbr {
     justify-content: flex-end;
     align-items: center;
     background-color: #C4DFE6;
-    background-image: url('https://spoonacular.com/recipeImages/matcha-green-tea-and-pineapple-smoothie-801710.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
     border-radius: 25px;
 }
 

@@ -6,21 +6,23 @@ const TimeSlot = props => {
 
     const [timeSelected, setTimeSelected] = useState(false)
 
-    const onTimeSlotSelect = () => {
+    const onTimeSlotSelect = (e) => {
         if (timeSelected) {
             setTimeSelected(false)
             props.setTimeSlot("")
+            props.setTimeSlotId(-1)
         } else {
             props.setTimeSlot(apptTime)
             setTimeSelected(true)
+            props.setTimeSlotId(props.id)
         }
         
     }
 
     return (
         <article className={props.availability === "Yes" ? "available timeAvailable" : "not-available timeAvailable"}>
-            <div className={timeSelected ? "timeSlot slotSelected" : "timeSlot"}
-                onClick={onTimeSlotSelect}
+            <div className={(timeSelected && props.timeSlotId === props.id) ? "timeSlot slotSelected" : "timeSlot"}
+                onClick={props.availability === "Yes" ? onTimeSlotSelect : null}
             ></div>
             <p>{apptTime}</p>
         </article>
