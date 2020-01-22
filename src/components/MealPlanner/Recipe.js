@@ -20,7 +20,7 @@ const Recipe = props => {
             <div className="backAndHeading">
                 <div className="sectionHeading">
                     <div className="back">
-                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
+                        <div className="leftArrow" onClick={() => props.onRouteChange('meal')}></div>
                         <p>Back</p>
                     </div>
                     <h1>{props.recipeData[props.counter].title}</h1>

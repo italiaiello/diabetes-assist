@@ -79,7 +79,7 @@ const BookAppointment = props => {
             <div className="backAndHeading">
                 <div className="sectionHeading">
                     <div className="back">
-                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'appointment')}></div>
+                        <div className="leftArrow" onClick={() => props.onRouteChange('appointment')}></div>
                         <p>Back</p>
                     </div>
                     <h1>My Health</h1>
@@ -96,9 +96,9 @@ const BookAppointment = props => {
                     </p>
                 </figure>
                 <div id="selectDate">
-                    <div className="leftArrow" onClick={handleDateIncrement.bind(this, "minus")}></div>
+                    <div className="leftArrow" onClick={() => handleDateIncrement("minus")}></div>
                     <p>{dateText}</p>
-                    <div className="rightArrow" onClick={handleDateIncrement.bind(this, "add")}></div>
+                    <div className="rightArrow" onClick={() => handleDateIncrement("add")}></div>
                 </div>
                 <label>
                     <DatePicker
@@ -116,7 +116,7 @@ const BookAppointment = props => {
             <SelectTime professionalId={props.professionalId} setTimeSlot={setTimeSlot}/>
             <button id="bookAppointment" onClick={onSubmitBooking}>Book Appointment</button>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>
         </article>
     )

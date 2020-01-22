@@ -9,7 +9,7 @@ const Cybel = props => {
             <div className="backAndHeading">
                 <div className="sectionHeading">
                     <div className="back">
-                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                        <div className="leftArrow" onClick={() => props.onRouteChange('home')}></div>
                         <p>Back</p>
                     </div>
                 </div>
@@ -26,7 +26,7 @@ const Cybel = props => {
                 <img src={Microphone} alt="Voice command microphone" />
             </figure>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>
         </div>
     )

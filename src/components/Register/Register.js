@@ -83,6 +83,7 @@ const Register = props => {
         if (!passwordDoesMatch()) {
             return 'Passwords must match'
         }
+        console.log(userName, age, gender, weight, height, diagnosis, email, password)
         fetch('http://localhost:3000/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -154,7 +155,7 @@ const Register = props => {
                 <button className={counter === 2 ? 'formButton show' : 'formButton hide'} type="submit" onClick={onSubmitRegister} >Register</button>
                 <p>Already have an account?
                     <br/><br/>
-                    <span className="alternateFormLink" onClick={props.onRouteChange.bind(this, 'signin')}>Sign In</span>
+                    <span className="alternateFormLink" onClick={() => props.onRouteChange('signin')}>Sign In</span>
                 </p>
             </form>
         </article>

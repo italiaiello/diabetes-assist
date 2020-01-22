@@ -8,7 +8,7 @@ const StartScreen = props => {
                 <img src={Logo} alt="Diabetes Assist Logo" />
                 <p>DiabetesAssist</p>
             </figure>
-            <button className="formButton" onClick={props.onRouteChange.bind(this, 'signin')}>Get Started</button>
+            <button className="formButton" onClick={() => props.onRouteChange('signin')}>Get Started</button>
         </article>
     )
 }

@@ -54,7 +54,7 @@ const SignIn = props => {
                 <button className="formButton" type="button" onClick={onSubmitSignIn}>Sign In</button>
                 <p>Don't have an account?
                     <br/><br/>
-                    <span className="alternateFormLink" onClick={props.onRouteChange.bind(this, 'register')}>Register</span>
+                    <span className="alternateFormLink" onClick={() => props.onRouteChange('register')}>Register</span>
                 </p>
             </form>
         </article>

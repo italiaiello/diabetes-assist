@@ -31,7 +31,7 @@ const Health = props => {
             <div className="backAndHeading">
                 <div className="sectionHeading">
                     <div className="back">
-                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                        <div className="leftArrow" onClick={() => props.onRouteChange('home')}></div>
                         <p>Back</p>
                     </div>
                     <h1>My Health</h1>
@@ -87,7 +87,7 @@ const Health = props => {
                 </article>
             </article>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>
         </article>
     )

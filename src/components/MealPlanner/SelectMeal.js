@@ -63,7 +63,7 @@ const SelectMeal = props => {
             <div className="backAndHeading">
                 <div className="sectionHeading">
                     <div className="back">
-                        <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'meal')}></div>
+                        <div className="leftArrow" onClick={() => props.onRouteChange('meal')}></div>
                         <p>Back</p>
                     </div>
                     <h1>{headingArray[props.index]}</h1>
@@ -76,7 +76,7 @@ const SelectMeal = props => {
                 <button>Recommended</button>
             </nav>
             <article className="availableMeals">
-                <div className="leftArrow" onClick={changeMeal.bind(this, 'prev')}></div>
+                <div className="leftArrow" onClick={() => changeMeal('prev')}></div>
                 <article ref={mealImage} className="foodCard" style={image}>
                     <div className={!showOptions ? "foodName" : "foodName showOptions"}>
                         <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>
@@ -91,10 +91,10 @@ const SelectMeal = props => {
                         
                     </div>
                 </article>
-                <div className="rightArrow" onClick={changeMeal.bind(this, 'next')}></div>
+                <div className="rightArrow" onClick={() => changeMeal('next')}></div>
             </article>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')}/>
+                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')}/>
             </figure>
         </div>
     )

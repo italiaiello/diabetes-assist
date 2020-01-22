@@ -22,7 +22,7 @@ const MealPlanner = props => {
                 <div className="backAndHeading">
                     <div className="sectionHeading">
                         <div className="back">
-                            <div className="leftArrow" onClick={props.onRouteChange.bind(this, 'home')}></div>
+                            <div className="leftArrow" onClick={() => props.onRouteChange('home')}></div>
                             <p>Back</p>
                         </div>
                         <h1>Meal Planner</h1>
@@ -72,7 +72,7 @@ const MealPlanner = props => {
                     </article>
                 </section>
                 <figure className="homeButton">
-                    <img src={HomeButton} alt="Home button" onClick={props.onRouteChange.bind(this, 'home')} />
+                    <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
                 </figure>
             </div>
         }
