@@ -51,14 +51,15 @@ const SelectMeal = props => {
     }
 
     const onMealSelect = () => {
+        console.log(props.index)
         switch(props.index) {
-            case 0:
+            case "0":
                 props.setBreakfastMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
-            case 1:
+            case "1":
                 props.setLunchMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
-            case 2:
+            case "2":
                 props.setDinnerMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
             default:
@@ -91,8 +92,8 @@ const SelectMeal = props => {
             <article className="availableMeals">
                 <div className="leftArrow" onClick={() => changeMeal('prev')}></div>
                 <article ref={mealImage} className="foodCard" >
-                    <figure className="mealImage">
-                        <img src={image} alt={props.slicedRecipeData[counter].image} onClick={onMealSelect}/>
+                    <figure className="mealImage" onClick={onMealSelect}>
+                        <img src={image} alt={props.slicedRecipeData[counter].image} />
                     </figure>
                     <div className={!showOptions ? "foodName" : "foodName showOptions"}>
                         <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>

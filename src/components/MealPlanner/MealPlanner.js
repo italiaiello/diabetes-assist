@@ -9,6 +9,12 @@ const MealPlanner = props => {
 
     const [index, setIndex] = useState(0)
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
+    const [breakfastMeals, setBreakfastMeals] = useState("")
+    const [lunchMeals, setLunchMeals] = useState("")
+    const [dinnerMeals, setDinnerMeals] = useState("")
+    console.log(breakfastMeals)
+    console.log(lunchMeals)
+    console.log(dinnerMeals)
 
     const onMealTimeSelect = (e) => {
         handleClick(e)
@@ -34,6 +40,24 @@ const MealPlanner = props => {
         }
     }
 
+    const onSubmitMealSelection = () => {
+        fetch('http://localhost:3000/plan-meals', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: props.userEmail,
+                breakfast: breakfastMeals,
+                lunch: lunchMeals,
+                dinner: dinnerMeals
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data === 'success') {
+                props.onRouteChange('home')
+            }
+        })
+    }
 
 
     return (
@@ -46,9 +70,9 @@ const MealPlanner = props => {
                 props.route === 'mealSelect' || props.route === 'recipe' ?
                 <SelectMeal index={index}
                                 slicedRecipeData={slicedRecipeData} 
-                                    setBreakfastMeals={props.setBreakfastMeals} 
-                                        setLunchMeals={props.setLunchMeals}
-                                            setDinnerMeals={props.setDinnerMeals} 
+                                    setBreakfastMeals={setBreakfastMeals} 
+                                        setLunchMeals={setLunchMeals}
+                                            setDinnerMeals={setDinnerMeals} 
                                                 onRouteChange={props.onRouteChange}
                 />
                 :
@@ -67,10 +91,10 @@ const MealPlanner = props => {
                         <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect} data-index="0">
                             <figure data-index="0">
                                 {
-                                    props.breakfastMeals === 'Nothing' ?
+                                    breakfastMeals === "" ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${props.breakfastMeals}`} alt={props.breakfastMeals} />
+                                    <img data-index="0" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${breakfastMeals}`} alt={breakfastMeals} />
                                 }
                             </figure>
                             <div data-index="0">
@@ -80,10 +104,10 @@ const MealPlanner = props => {
                         <article id="lunch" className="chooseMealHome" onClick={onMealTimeSelect} data-index="1">
                             <figure data-index="1">
                                 {
-                                    props.dinnerMeals === 'Nothing' ?
+                                    lunchMeals.length === 0 ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${props.lunchMeals}`} alt={props.lunchMeals} />
+                                    <img data-index="1" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${lunchMeals}`} alt={lunchMeals} />
                                 }
                             </figure>
                             <div data-index="1">
@@ -93,11 +117,11 @@ const MealPlanner = props => {
                         <article id="dinner" className="chooseMealHome" onClick={onMealTimeSelect} data-index="2">
                             <figure data-index="2">
                                 {
-                                    props.dinnerMeals === 'Nothing' ?
+                                    dinnerMeals.length === 0 ?
                                     
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${props.dinnerMeals}`} alt={props.dinnerMeals} />
+                                    <img data-index="2" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${dinnerMeals}`} alt={dinnerMeals} />
                                 }
                             </figure>
                             <div data-index="2">
@@ -105,7 +129,7 @@ const MealPlanner = props => {
                             </div>
                         </article>
                     </section>
-                    <button className="done">Done</button>
+                    <button className="done" onClick={onSubmitMealSelection}>Done</button>
                     <figure className="homeButton">
                         <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
                     </figure>
