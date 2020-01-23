@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import SelectTime from './SelectTime'
+import ConfirmBooking from './ConfirmBooking'
 import Calendar from '../../images/calendar.svg'
 import HomeButton from '../../images/Home.svg'
 import HealthProfessionals from '../../json/test.json'
+import ErrorIcon from '../../images/Error.svg'
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css";
@@ -24,12 +26,18 @@ const BookAppointment = props => {
 
     const [dateText, setDateText] = useState(newDate);
     const [timeSlot, setTimeSlot] = useState("");
-    const [booking, setBooking] = useState({
-        'professional': '',
-        'date': '',
-        'time': ''
-    })
-    console.log(booking)
+
+    const [isBookingValid, setIsBookingValid] = useState(true);
+    const [isBookingValidText, setIsBookingValidText] = useState('')
+
+    const checkBookingIsValid = () => {
+        if (timeSlot === '') {
+            setIsBookingValid(false)
+            setIsBookingValidText('Please select a time for your booking')
+        }
+        
+        props.onRouteChange('confirmBooking')
+    }
 
 
     const handleDateIncrement = (operation) => {
@@ -63,18 +71,19 @@ const BookAppointment = props => {
         setDateText(date)
     }
 
-    const onSubmitBooking = () => {
-        setBooking({
-            'professional': props.professionalId,
-            'date': dateText,
-            'time': timeSlot
-        })
-    }
+    
 
     
 
     
     return (
+        props.route === 'confirmBooking' ?
+        <ConfirmBooking professionalId={props.professionalId} 
+                        onRouteChange={props.onRouteChange} 
+                        dateText={dateText}
+                        timeSlot={timeSlot}
+                        userEmail={props.userEmail} />
+        :
         <article className="pageDisplay">
             <div className="backAndHeading">
                 <div className="sectionHeading">
@@ -114,7 +123,13 @@ const BookAppointment = props => {
                 </label>            
             </div>
             <SelectTime professionalId={props.professionalId} setTimeSlot={setTimeSlot}/>
-            <button id="bookAppointment" onClick={onSubmitBooking}>Book Appointment</button>
+            <div className={!isBookingValid ? 'formError show' : 'hide'}>
+                <figure className="errorIcon">
+                    <img src={ErrorIcon} alt="Error symbol" />
+                </figure>
+                <p>{isBookingValidText}</p>
+            </div>
+            <button id="bookAppointment" onClick={checkBookingIsValid}>Book Appointment</button>
             <figure className="homeButton">
                 <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>

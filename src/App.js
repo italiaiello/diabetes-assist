@@ -10,7 +10,7 @@ import './App.css';
 
 const App = () => {
 
-  const [route, setRoute] = useState('start')
+  const [route, setRoute] = useState('home')
   const [fetchData, setFetchData] = useState(false)
   const [user, setUser] = useState({
     id: '',
@@ -73,7 +73,8 @@ const App = () => {
             <OtherPages route={route} 
                         onRouteChange={onRouteChange} 
                         fetchData={fetchData} 
-                        loadUser={loadUser} />
+                        loadUser={loadUser}
+                        userEmail={user.email} />
           )
         )
       }

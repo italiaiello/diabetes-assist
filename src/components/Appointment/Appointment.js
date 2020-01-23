@@ -15,8 +15,11 @@ const Appointment = props => {
     }
 
     return (
-        props.route === 'appointmentTime' ?
-        <BookAppointment onRouteChange={props.onRouteChange} professionalId={professionalId} />
+        props.route === 'appointmentTime' || props.route === 'confirmBooking' ?
+        <BookAppointment onRouteChange={props.onRouteChange} 
+                            professionalId={professionalId} 
+                                userEmail={props.userEmail}
+                                    route={props.route} />
         :
         <div className="pageDisplay">
             <div className="backAndHeading">
