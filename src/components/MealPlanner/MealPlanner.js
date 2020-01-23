@@ -6,31 +6,35 @@ import HomeButton from '../../images/Home.svg';
 const MealPlanner = props => {
 
     let recipeData = props.recipeData
-    console.log(recipeData)
-    console.log(props.index)
-    const [index, setIndex] = useState(0);
+
+    const [index, setIndex] = useState(0)
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
-    const [breakfastMeals, setBreakfastMeals] = useState("Nothing")
-    const [lunchMeals, setLunchMeals] = useState("Nothing")
-    const [dinnerMeals, setDinnerMeals] = useState("Nothing")
-    console.log(breakfastMeals, lunchMeals, dinnerMeals)
 
     const onMealTimeSelect = (e) => {
-        props.handleClick(e)
+        handleClick(e)
         props.onRouteChange('mealSelect')
     }
 
     const handleClick = (e) => {
-        setIndex(e.target.getAttribute("data-index"));
+        setIndex(e.target.dataset.index)
+        console.log(e.target.dataset.index)
 
-        if (index === 0) {
-            setSlicedRecipeData(recipeData.slice(0, 3))
-        } else if (index === 1) {
-            setSlicedRecipeData(recipeData.slice(3, 6))
-        } else if (index === 3) {
-            setSlicedRecipeData(recipeData.slice(6, 9))
+        switch(e.target.dataset.index) {
+            case "0":
+                setSlicedRecipeData(recipeData.slice(0, 3))
+                break;
+            case "1":
+                setSlicedRecipeData(recipeData.slice(3, 6))
+                break;
+            case "2":
+                setSlicedRecipeData(recipeData.slice(6, 9))
+                break;
+            default:
+                return;
         }
     }
+
+
 
     return (
         <div>
@@ -40,11 +44,11 @@ const MealPlanner = props => {
             :
             (
                 props.route === 'mealSelect' || props.route === 'recipe' ?
-                <SelectMeal index={props.index} 
-                                recipeData={props.recipeData} 
-                                    setBreakfastMeals={setBreakfastMeals} 
-                                        setLunchMeals={setLunchMeals}
-                                            setDinnerMeals={setDinnerMeals} 
+                <SelectMeal index={index}
+                                slicedRecipeData={slicedRecipeData} 
+                                    setBreakfastMeals={props.setBreakfastMeals} 
+                                        setLunchMeals={props.setLunchMeals}
+                                            setDinnerMeals={props.setDinnerMeals} 
                                                 onRouteChange={props.onRouteChange}
                 />
                 :
@@ -60,40 +64,40 @@ const MealPlanner = props => {
                     </div>
                     <h2>Choose Your Meals</h2>
                     <section>
-                        <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect} data-index="0">
                             <figure data-index="0">
                                 {
-                                    breakfastMeals === 'Nothing' ?
+                                    props.breakfastMeals === 'Nothing' ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${breakfastMeals}`} alt={breakfastMeals} />
+                                    <img src={`https://spoonacular.com/recipeImages/${props.breakfastMeals}`} alt={props.breakfastMeals} />
                                 }
                             </figure>
                             <div data-index="0">
                                 <p>Breakfast</p>
                             </div>
                         </article>
-                        <article id="lunch" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <article id="lunch" className="chooseMealHome" onClick={onMealTimeSelect} data-index="1">
                             <figure data-index="1">
                                 {
-                                    dinnerMeals === 'Nothing' ?
+                                    props.dinnerMeals === 'Nothing' ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${lunchMeals}`} alt={lunchMeals} />
+                                    <img src={`https://spoonacular.com/recipeImages/${props.lunchMeals}`} alt={props.lunchMeals} />
                                 }
                             </figure>
                             <div data-index="1">
                                 <p>Lunch</p>
                             </div>
                         </article>
-                        <article id="dinner" className="chooseMealHome" onClick={onMealTimeSelect}>
+                        <article id="dinner" className="chooseMealHome" onClick={onMealTimeSelect} data-index="2">
                             <figure data-index="2">
                                 {
-                                    dinnerMeals === 'Nothing' ?
+                                    props.dinnerMeals === 'Nothing' ?
                                     
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img src={`https://spoonacular.com/recipeImages/${dinnerMeals}`} alt={dinnerMeals} />
+                                    <img src={`https://spoonacular.com/recipeImages/${props.dinnerMeals}`} alt={props.dinnerMeals} />
                                 }
                             </figure>
                             <div data-index="2">

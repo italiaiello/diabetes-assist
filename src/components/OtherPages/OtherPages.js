@@ -12,7 +12,12 @@ const OtherPages = props => {
 
     let route = props.route
     const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=d464b770a6c2452cb7d56fc6ccea9eb5', props.fetchData)
-
+    const [breakfastMeals, setBreakfastMeals] = useState("Nothing")
+    const [lunchMeals, setLunchMeals] = useState("Nothing")
+    const [dinnerMeals, setDinnerMeals] = useState("Nothing")
+    console.log(breakfastMeals)
+    console.log(lunchMeals)
+    console.log(dinnerMeals)
 
     return (
         <div>
@@ -44,9 +49,17 @@ const OtherPages = props => {
                                 (
                                     route === 'meal' || route === 'mealSelect' || route === 'recipe'
                                     ?
-                                    <MealPlanner recipeData={recipeData} 
-                                                    onRouteChange={props.onRouteChange}
-                                                        route={route} />
+                                    <MealPlanner recipeData={recipeData}
+                                                onRouteChange={props.onRouteChange}
+                                                route={route}    
+                                                breakfastMeals={breakfastMeals}
+                                                lunchMeals={lunchMeals}
+                                                dinnerMeals={dinnerMeals}                                      
+                                                setBreakfastMeals={setBreakfastMeals}                                                
+                                                setLunchMeals={setLunchMeals}                                                
+                                                setDinnerMeals={setDinnerMeals}
+                                                
+                                    />
                                     :
                                     (
                                         route === 'appointment' || route === 'appointmentTime' || 

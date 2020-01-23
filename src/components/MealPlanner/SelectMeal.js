@@ -5,18 +5,20 @@ import HomeButton from '../../images/Home.svg';
 const SelectMeal = props => {
 
     console.log(props.index)
+    console.log(props.slicedRecipeData)
 
     const mealImage = useRef()
 
     const headingArray = ["Breakfast", "Lunch", "Dinner"];
     const [counter, setCounter] = useState(0)
     const [showOptions, setShowOptions] = useState(false)
-    const [image, setImage] = useState(`https://spoonacular.com/recipeImages/${props.recipeData[counter].image}`)
+    const [image, setImage] = useState(`https://spoonacular.com/recipeImages/${props.slicedRecipeData[counter].image}`)
 
     const changeImage = (index) => {
-        setImage(`https://spoonacular.com/recipeImages/${props.recipeData[index].image}`)
+        setImage(`https://spoonacular.com/recipeImages/${props.slicedRecipeData[index].image}`)
     }
 
+    
     const changeMeal = (prevOrNext) => {
         if (prevOrNext === 'next') {
             if (counter === 2) {
@@ -49,17 +51,18 @@ const SelectMeal = props => {
     }
 
     const onMealSelect = () => {
-        console.log(props.index)
         switch(props.index) {
             case 0:
-                props.setBreakfastMeals(props.recipeData[counter].image)
+                props.setBreakfastMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
             case 1:
-                props.setLunchMeals(props.recipeData[counter].image)
+                props.setLunchMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
             case 2:
-                props.setDinnerMeals(props.recipeData[counter].image)
+                props.setDinnerMeals(`${props.slicedRecipeData[counter].image}`)
                 break;
+            default:
+                return;
         }
 
         props.onRouteChange('meal')
@@ -67,7 +70,7 @@ const SelectMeal = props => {
 
     return (
         props.route === 'recipe' ?
-        <Recipe counter={counter} recipeData={props.recipeData} onRouteChange={props.onRouteChange} />
+        <Recipe counter={counter} slicedRecipeData={props.slicedRecipeData} onRouteChange={props.onRouteChange} />
         :
         <div className="pageDisplay">
             <div className="backAndHeading">
@@ -88,16 +91,16 @@ const SelectMeal = props => {
             <article className="availableMeals">
                 <div className="leftArrow" onClick={() => changeMeal('prev')}></div>
                 <article ref={mealImage} className="foodCard" >
-                    <figure className="mealImage" onClick={onMealSelect}>
-                        <img src={image} alt={props.recipeData[counter].image} />
+                    <figure className="mealImage">
+                        <img src={image} alt={props.slicedRecipeData[counter].image} onClick={onMealSelect}/>
                     </figure>
                     <div className={!showOptions ? "foodName" : "foodName showOptions"}>
                         <div className={showOptions ? "arrow-down" : "arrow-up"} onClick={toggleOptions}></div>
-                        <p>{props.recipeData[counter].title}</p>
+                        <p>{props.slicedRecipeData[counter].title}</p>
                         <div className={showOptions ? "mealInfo show" : "hide"}>
                             <h3>Meal Information</h3>
-                            <p>{`Ready in: ${props.recipeData[counter].readyInMinutes} mins
-                                | Servings: ${props.recipeData[counter].servings}`}                              
+                            <p>{`Ready in: ${props.slicedRecipeData[counter].readyInMinutes} mins
+                                | Servings: ${props.slicedRecipeData[counter].servings}`}                              
                             </p>
                             <button className="seeRecipe" onClick={onSeeRecipe}>See Recipe</button>
                         </div>
