@@ -9,9 +9,18 @@ const MealPlanner = props => {
 
     const [index, setIndex] = useState(0)
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
-    const [breakfastMeals, setBreakfastMeals] = useState("")
-    const [lunchMeals, setLunchMeals] = useState("")
-    const [dinnerMeals, setDinnerMeals] = useState("")
+    const [breakfastMeals, setBreakfastMeals] = useState({
+        "title": "",
+        "image": ""
+    })
+    const [lunchMeals, setLunchMeals] = useState({
+        "title": "",
+        "image": ""
+    })
+    const [dinnerMeals, setDinnerMeals] = useState({
+        "title": "",
+        "image": ""
+    })
     console.log(breakfastMeals)
     console.log(lunchMeals)
     console.log(dinnerMeals)
@@ -46,9 +55,9 @@ const MealPlanner = props => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: props.userEmail,
-                breakfast: breakfastMeals,
-                lunch: lunchMeals,
-                dinner: dinnerMeals
+                breakfast: breakfastMeals.title,
+                lunch: lunchMeals.title,
+                dinner: dinnerMeals.title
             })
         })
         .then(response => response.json())
@@ -91,10 +100,10 @@ const MealPlanner = props => {
                         <article id="breakfast" className="chooseMealHome" onClick={onMealTimeSelect} data-index="0">
                             <figure data-index="0">
                                 {
-                                    breakfastMeals === "" ?
+                                    breakfastMeals.image.length === 0 ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img data-index="0" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${breakfastMeals}`} alt={breakfastMeals} />
+                                    <img data-index="0" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${breakfastMeals.image}`} alt={breakfastMeals.title} />
                                 }
                             </figure>
                             <div data-index="0">
@@ -104,10 +113,10 @@ const MealPlanner = props => {
                         <article id="lunch" className="chooseMealHome" onClick={onMealTimeSelect} data-index="1">
                             <figure data-index="1">
                                 {
-                                    lunchMeals.length === 0 ?
+                                    lunchMeals.image.length === 0 ?
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img data-index="1" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${lunchMeals}`} alt={lunchMeals} />
+                                    <img data-index="1" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${lunchMeals.image}`} alt={lunchMeals.title} />
                                 }
                             </figure>
                             <div data-index="1">
@@ -117,11 +126,11 @@ const MealPlanner = props => {
                         <article id="dinner" className="chooseMealHome" onClick={onMealTimeSelect} data-index="2">
                             <figure data-index="2">
                                 {
-                                    dinnerMeals.length === 0 ?
+                                    dinnerMeals.image.length === 0 ?
                                     
                                     <img src={PlusSign} alt="Plus sign" />
                                     :
-                                    <img data-index="2" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${dinnerMeals}`} alt={dinnerMeals} />
+                                    <img data-index="2" className="selectedMealImage" src={`https://spoonacular.com/recipeImages/${dinnerMeals.image}`} alt={dinnerMeals.title} />
                                 }
                             </figure>
                             <div data-index="2">

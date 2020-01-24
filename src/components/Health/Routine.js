@@ -49,7 +49,7 @@ const Routine = props => {
                             props.isProfileOpen ?
                             <article className="med-container" key={`${props.dayOfWeek}${i}`}>
                                 <button className="removeMedication" 
-                                        onClick={removeItem.bind(this, medication)}
+                                        onClick={() => removeItem(medication)}
                                 >&times;</button>
                                 <p>{medication}</p>
                             </article>

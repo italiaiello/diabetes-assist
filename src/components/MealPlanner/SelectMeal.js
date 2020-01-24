@@ -46,21 +46,28 @@ const SelectMeal = props => {
     }
 
     const onSeeRecipe = e => {
-        console.log(e.currentTarget.dataset.id)
         props.onRouteChange('recipe')
     }
 
     const onMealSelect = () => {
-        console.log(props.index)
         switch(props.index) {
             case "0":
-                props.setBreakfastMeals(`${props.slicedRecipeData[counter].image}`)
+                props.setBreakfastMeals({
+                    "title":`${props.slicedRecipeData[counter].title}`,
+                    "image":`${props.slicedRecipeData[counter].image}`
+                })
                 break;
             case "1":
-                props.setLunchMeals(`${props.slicedRecipeData[counter].image}`)
+                props.setLunchMeals({
+                    "title":`${props.slicedRecipeData[counter].title}`,
+                    "image":`${props.slicedRecipeData[counter].image}`
+                })
                 break;
             case "2":
-                props.setDinnerMeals(`${props.slicedRecipeData[counter].image}`)
+                props.setDinnerMeals({
+                    "title":`${props.slicedRecipeData[counter].title}`,
+                    "image":`${props.slicedRecipeData[counter].image}`
+                })
                 break;
             default:
                 return;

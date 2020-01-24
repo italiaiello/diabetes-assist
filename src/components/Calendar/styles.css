@@ -314,13 +314,31 @@ button, abbr {
 .circleButton {
     width: 20px;
     height: 20px;
-    border: 2px solid #D7D7D7;
+    border: 2px solid #66A5AD;
     border-radius: 50%;
     cursor: pointer;
 }
 
+.tickIcon {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    visibility: hidden;
+}
+
+.tickIcon img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.circleButton:hover .tickIcon{
+    visibility: visible;
+}
+
 .list p {
     width: 80%;
+    height: auto;
     color: #C4DFE6;
     text-align: left;
     padding: 10px;

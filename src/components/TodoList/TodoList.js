@@ -28,7 +28,7 @@ const TodoList = props => {
 
     return (
         <div>
-            <ListItems todoTasks={props.todoTasks}/>
+            <ListItems todoTasks={props.todoTasks} setTodoTasks={props.setTodoTasks}/>
             <article id="addTask">
                 <button type="submit" onClick={addItem}>+</button>
                 <input type="text" onKeyPress={searchWithEnterKey} placeholder="Enter text" 

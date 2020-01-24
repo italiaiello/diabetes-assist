@@ -23,6 +23,9 @@ const App = () => {
   })
   
   const [todoTasks, setTodoTasks] = useState([])
+  const [medicationRoutine, setMedicationRoutine] = useState({})
+  const [appointments, setAppointments] = useState({})
+  const [mealPlan, setMealPlan] = useState({})
   const [isSigningOut, setIsSigningOut] = useState(false)
 
   const onRouteChange = (route) => {
@@ -41,6 +44,10 @@ const App = () => {
       height: data.height,
       diagnosis: data.diagnosis
     })
+    setTodoTasks(data.todo_list)
+    setMedicationRoutine(data.medication_routine)
+    setAppointments(data.appointments)
+    setMealPlan(data.meal_plan)
   }
 
   return (
@@ -73,7 +80,11 @@ const App = () => {
                         onRouteChange={onRouteChange} 
                         fetchData={fetchData} 
                         loadUser={loadUser}
-                        userEmail={user.email} />
+                        userEmail={user.email} 
+                        medicationRoutine={medicationRoutine}
+                        appointments={appointments}
+                        mealPlan={mealPlan}
+            />
           )
         )
       }
