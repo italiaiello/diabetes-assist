@@ -4,6 +4,8 @@ import HomeButton from '../../images/Home.svg';
 
 const SelectMeal = props => {
 
+    console.log('selectMeal', props.route)
+
     console.log(props.index)
     console.log(props.slicedRecipeData)
 
@@ -45,7 +47,8 @@ const SelectMeal = props => {
         setShowOptions(!showOptions)
     }
 
-    const onSeeRecipe = e => {
+    const onSeeRecipe = () => {
+        console.log('Clicked')
         props.onRouteChange('recipe')
     }
 

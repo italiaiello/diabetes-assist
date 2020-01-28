@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import SelectMeal from './SelectMeal'
 import PlusSign from '../../images/plus_sign.svg'
-import HomeButton from '../../images/Home.svg';
+import HomeButton from '../../images/Home.svg'
+import ErrorIcon from '../../images/Error.svg'
 
 const MealPlanner = props => {
 
@@ -9,6 +10,8 @@ const MealPlanner = props => {
 
     const [index, setIndex] = useState(0)
     const [slicedRecipeData, setSlicedRecipeData] = useState([])
+    const [validSelection, setValidSelection] = useState(true)
+    const [validText, setValidText] = useState("")
     const [breakfastMeals, setBreakfastMeals] = useState({
         "title": "",
         "image": ""
@@ -26,6 +29,8 @@ const MealPlanner = props => {
     console.log(dinnerMeals)
 
     const onMealTimeSelect = (e) => {
+        setValidSelection(true)
+        setValidText("")
         handleClick(e)
         props.onRouteChange('mealSelect')
     }
@@ -33,7 +38,6 @@ const MealPlanner = props => {
     const handleClick = (e) => {
         setIndex(e.target.dataset.index)
         console.log(e.target.dataset.index)
-
         switch(e.target.dataset.index) {
             case "0":
                 setSlicedRecipeData(recipeData.slice(0, 3))
@@ -50,6 +54,12 @@ const MealPlanner = props => {
     }
 
     const onSubmitMealSelection = () => {
+        if (breakfastMeals.title == "" || lunchMeals.title === "" || dinnerMeals.title === "") {
+            setValidSelection(false)
+            setValidText("You still have meal(s) to select")
+            return;
+        }
+
         fetch('http://localhost:3000/plan-meals', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
@@ -83,6 +93,7 @@ const MealPlanner = props => {
                                         setLunchMeals={setLunchMeals}
                                             setDinnerMeals={setDinnerMeals} 
                                                 onRouteChange={props.onRouteChange}
+                                                    route={props.route}
                 />
                 :
                 <div className="pageDisplay">
@@ -138,6 +149,12 @@ const MealPlanner = props => {
                             </div>
                         </article>
                     </section>
+                    <div className={!validSelection ? 'formError show' : 'hide'}>
+                        <figure className="errorIcon">
+                            <img src={ErrorIcon} alt="Error symbol" />
+                        </figure>
+                        <p>{validText}</p>
+                    </div>
                     <button className="done" onClick={onSubmitMealSelection}>Done</button>
                     <figure className="homeButton">
                         <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />

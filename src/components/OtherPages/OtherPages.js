@@ -11,7 +11,7 @@ import { useDataFetch } from '../../hooks/DisplayRecipes'
 const OtherPages = props => {
 
     let route = props.route
-    const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=YOUR_API_KEY', props.fetchData)
+    const [isLoading, recipeData] = useDataFetch('https://api.spoonacular.com/recipes/search?apiKey=d464b770a6c2452cb7d56fc6ccea9eb5', props.fetchData)
 
     return (
         <div>
