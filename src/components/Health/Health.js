@@ -22,7 +22,6 @@ const Health = props => {
     const [isProfileOpen, setIsProfileOpen] = useState(false)
 
     const toggleModal = () => {
-        console.log(isProfileOpen)
         setIsProfileOpen(!isProfileOpen)
     }
 
@@ -37,6 +36,7 @@ const Health = props => {
                     <h1>My Health</h1>
                 </div>
             </div>
+            <div id="modalThing">
             {
                 isProfileOpen &&
                 <Modal>
@@ -48,6 +48,7 @@ const Health = props => {
                     />
                 </Modal>
             }
+            </div>
             <article id="healthSection">
                 <article id="healthData">
                     <article id="routine">
@@ -87,7 +88,7 @@ const Health = props => {
                 </article>
             </article>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
+                <img id="home" src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>
         </article>
     )
