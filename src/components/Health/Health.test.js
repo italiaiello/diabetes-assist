@@ -24,10 +24,6 @@ describe('Health.js', () => {
     expect(wrapper.find('Modal')).toEqual({})
   })
 
-  it('expects to render Health component', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-
   it('expects modal component to appear', () => {
     wrapper.find('[id="change"]').simulate('click')
     expect(wrapper.find('Modal')).not.toBeNull()

@@ -26,7 +26,7 @@ const Cybel = props => {
                 <img src={Microphone} alt="Voice command microphone" />
             </figure>
             <figure className="homeButton">
-                <img src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
+                <img id="homeCybel" src={HomeButton} alt="Home button" onClick={() => props.onRouteChange('home')} />
             </figure>
         </div>
     )

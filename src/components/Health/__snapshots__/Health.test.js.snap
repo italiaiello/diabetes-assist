@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Health.js expects to render Health component 1`] = `ShallowWrapper {}`;
