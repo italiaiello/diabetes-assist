@@ -17,7 +17,7 @@ const Emergency = props => {
                 <img src={Phone} alt="Phone ringing" />
             </figure>
             <p id="calling">Calling "<span>000</span>" For You...</p>
-            <button id="cancelCall">Cancel</button>
+            <button id="cancelCall" onClick={() => props.onRouteChange('home')}>Cancel</button>
         </article>
     )
 }

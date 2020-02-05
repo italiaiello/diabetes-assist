@@ -38,7 +38,7 @@ const RoutineEdit = ({toggleModal, daysOfWeek, routine, setRoutine, isProfileOpe
                 </div>
                 <div className="modal-buttons">
                     <button className="modal-cancel" onClick={toggleModal}>Cancel</button>
-                    <button className="modal-save" onClick={saveChanges}>Save and Close</button>
+                    <button className="modal-save" currentRoutine={tempRoutine} onClick={saveChanges}>Save and Close</button>
                 </div>
             </article>
         </article>
