@@ -36,7 +36,6 @@ describe('RoutineEdit.js', () => {
 
   let wrapper;
   
-
   beforeEach(() => {
     wrapper = shallow(<RoutineEdit { ...mockProps } />);
   });

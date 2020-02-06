@@ -34,8 +34,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
     "babel-jest": "^24.9.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "enzyme-adapter-react-16": "^1.15.2",
+    "fetch-mock": "^9.0.0-beta.2",
+    "node-fetch": "^2.6.0",
+    "react-test-render": "^1.1.2",
+    "whatwg-fetch": "^3.0.0"
   }
 }
