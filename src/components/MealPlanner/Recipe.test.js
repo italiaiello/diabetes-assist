@@ -1,7 +1,6 @@
 import React from "react";
-import { useRecipeFetch } from "../../hooks/DisplayMealRecipe";
-import { renderHook, act } from "@testing-library/react-hooks";
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import Recipe from './Recipe';
 
 let route = ""
@@ -51,16 +50,12 @@ const mockProps = {
     counter: mockCounter
 }
 
-describe("useDataApi", () => {
+describe("Recipe.js", () => {
+    let wrapper;
 
     it('renders', () => {
-        const wrapper = shallow(<Recipe {...mockProps} />)
-        expect(wrapper).toMatchSnapshot()
+        wrapper = shallow(<Recipe {...mockProps} />);
+        expect(toJson(wrapper)).toMatchSnapshot()
     })
 
-  it("should return data with a successful request", async () => {
-    const { result } = renderHook(() => useRecipeFetch());
-
-    expect(result.current).toStrictEqual([true, []]);
-  });
 });
