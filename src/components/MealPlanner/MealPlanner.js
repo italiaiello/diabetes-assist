@@ -54,7 +54,7 @@ const MealPlanner = props => {
     }
 
     const onSubmitMealSelection = () => {
-        if (breakfastMeals.title == "" || lunchMeals.title === "" || dinnerMeals.title === "") {
+        if (breakfastMeals.title === "" || lunchMeals.title === "" || dinnerMeals.title === "") {
             setValidSelection(false)
             setValidText("You still have meal(s) to select")
             return;

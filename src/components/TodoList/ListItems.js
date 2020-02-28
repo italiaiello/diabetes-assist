@@ -16,7 +16,7 @@ const ListItems = props => {
             <div className="list" key={i}>
                 <div className="circleButton" onClick={() => removeItem(task)}>
                     <figure className="tickIcon">
-                        <img src={TaskTick} />
+                        <img src={TaskTick} alt="Task ticked off" />
                     </figure>
                 </div>
                 <p>{task}</p>

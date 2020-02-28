@@ -15,7 +15,7 @@ const Navigation = props => {
                     <p>My Health</p>
                 </figure>
                 <figure>
-                    <img id="apptIcon" idsrc={AppointmentIcon} alt="Icon for the Book Appointment section" onClick={() => props.onRouteChange('appointment')} />
+                    <img id="apptIcon" src={AppointmentIcon} alt="Icon for the Book Appointment section" onClick={() => props.onRouteChange('appointment')} />
                     <p>Appointments</p>
                 </figure>
                 <figure>

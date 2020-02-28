@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import HomeButton from '../../images/Home.svg'
 import Bell from '../../images/notifications.svg'
 import Person from '../../images/Person.png'
+import BGLGraph from '../../images/bgl-graph.png'
 import Routine from './Routine'
 import Modal from '../Modal/Modal'
 import RoutineEdit from './RoutineEdit'
@@ -76,7 +77,9 @@ const Health = props => {
                         </div>
                     </article>
                     <article id="bglGraph">
-                        <h3>Blood Glucose Level History</h3>
+                        <figure id="bglHistory">
+                            <img src={BGLGraph} alt="Graph of BGL History" />
+                        </figure>
                     </article>
                 </article>
                 <article id="account">
@@ -84,7 +87,6 @@ const Health = props => {
                         <img src={Person} alt="Person" />
                     </figure>
                     <p>Aysha<br/>Whitmore</p>
-
                 </article>
             </article>
             <figure className="homeButton">
