@@ -84,7 +84,7 @@ const Register = props => {
             return 'Passwords must match'
         }
         console.log(userName, age, gender, weight, height, diagnosis, email, password)
-        fetch('http://localhost:3000/register', {
+        fetch('https://diabetes-assist-api.herokuapp.com/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
