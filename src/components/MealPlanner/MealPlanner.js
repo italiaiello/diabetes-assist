@@ -60,7 +60,7 @@ const MealPlanner = props => {
             return;
         }
 
-        fetch('https://diabetes-assist-api.herokuapp.com/plan-meals', {
+        fetch('http://localhost:3000/plan-meals', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

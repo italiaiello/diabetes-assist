@@ -8,7 +8,7 @@ const ConfirmBooking = props => {
     console.log(idNum)
 
     const onSubmitBooking = () => {
-        fetch('https://diabetes-assist-api.herokuapp.com/book-appointment', {
+        fetch('http://localhost:3000/book-appointment', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
