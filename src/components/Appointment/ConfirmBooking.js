@@ -8,7 +8,7 @@ const ConfirmBooking = props => {
     console.log(idNum)
 
     const onSubmitBooking = () => {
-        fetch('http://localhost:3000/book-appointment', {
+        fetch('https://floating-waters-62169.herokuapp.com/book-appointment', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

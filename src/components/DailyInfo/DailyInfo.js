@@ -19,7 +19,7 @@ const DailyInfo = props => {
 
     const onSignOut = () => {
         props.setIsSigningOut(true)
-        fetch('http://localhost:3000/signout', {
+        fetch('https://floating-waters-62169.herokuapp.com/signout', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

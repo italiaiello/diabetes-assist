@@ -60,7 +60,7 @@ const MealPlanner = props => {
             return;
         }
 
-        fetch('http://localhost:3000/plan-meals', {
+        fetch('https://floating-waters-62169.herokuapp.com/plan-meals', {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
