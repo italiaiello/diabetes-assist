@@ -44,8 +44,8 @@ const App = () => {
       height: data.height,
       diagnosis: data.diagnosis
     })
-
-    data.todo_list !== null 
+    
+    data.todo_list === null 
     ? setTodoTasks([])
     : setTodoTasks(data.todo_list)
     
