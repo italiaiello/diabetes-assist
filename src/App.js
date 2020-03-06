@@ -44,7 +44,7 @@ const App = () => {
       height: data.height,
       diagnosis: data.diagnosis
     })
-    console.log(data.todo_list)
+    console.log('howdy')
     if (data.todoList !== null) {
       setTodoTasks(data.todo_list)
     }
