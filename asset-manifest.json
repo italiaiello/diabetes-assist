@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/diabetes-assist/static/css/main.cb7d10b6.chunk.css",
-    "main.js": "/diabetes-assist/static/js/main.a9b1aadf.chunk.js",
-    "main.js.map": "/diabetes-assist/static/js/main.a9b1aadf.chunk.js.map",
+    "main.css": "/diabetes-assist/static/css/main.ffea62c2.chunk.css",
+    "main.js": "/diabetes-assist/static/js/main.8e05322d.chunk.js",
+    "main.js.map": "/diabetes-assist/static/js/main.8e05322d.chunk.js.map",
     "runtime-main.js": "/diabetes-assist/static/js/runtime-main.7738ec58.js",
     "runtime-main.js.map": "/diabetes-assist/static/js/runtime-main.7738ec58.js.map",
     "static/css/2.e9e7e959.chunk.css": "/diabetes-assist/static/css/2.e9e7e959.chunk.css",
     "static/js/2.e8412e93.chunk.js": "/diabetes-assist/static/js/2.e8412e93.chunk.js",
     "static/js/2.e8412e93.chunk.js.map": "/diabetes-assist/static/js/2.e8412e93.chunk.js.map",
     "index.html": "/diabetes-assist/index.html",
-    "precache-manifest.5971b064ca19eb768e72781436dd4dfe.js": "/diabetes-assist/precache-manifest.5971b064ca19eb768e72781436dd4dfe.js",
+    "precache-manifest.8915e44703f4c83f9ffc50ae9f85725e.js": "/diabetes-assist/precache-manifest.8915e44703f4c83f9ffc50ae9f85725e.js",
     "service-worker.js": "/diabetes-assist/service-worker.js",
     "static/css/2.e9e7e959.chunk.css.map": "/diabetes-assist/static/css/2.e9e7e959.chunk.css.map",
-    "static/css/main.cb7d10b6.chunk.css.map": "/diabetes-assist/static/css/main.cb7d10b6.chunk.css.map",
+    "static/css/main.ffea62c2.chunk.css.map": "/diabetes-assist/static/css/main.ffea62c2.chunk.css.map",
     "static/js/2.e8412e93.chunk.js.LICENSE": "/diabetes-assist/static/js/2.e8412e93.chunk.js.LICENSE",
     "static/media/AliceManini.png": "/diabetes-assist/static/media/AliceManini.0aa811e0.png",
     "static/media/CamilleGreen.png": "/diabetes-assist/static/media/CamilleGreen.cf2826be.png",
@@ -40,7 +40,7 @@
     "static/js/runtime-main.7738ec58.js",
     "static/css/2.e9e7e959.chunk.css",
     "static/js/2.e8412e93.chunk.js",
-    "static/css/main.cb7d10b6.chunk.css",
-    "static/js/main.a9b1aadf.chunk.js"
+    "static/css/main.ffea62c2.chunk.css",
+    "static/js/main.8e05322d.chunk.js"
   ]
 }

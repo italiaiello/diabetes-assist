@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/diabetes-assist/precache-manifest.5971b064ca19eb768e72781436dd4dfe.js"
+  "/diabetes-assist/precache-manifest.8915e44703f4c83f9ffc50ae9f85725e.js"
 );
 
 self.addEventListener('message', (event) => {

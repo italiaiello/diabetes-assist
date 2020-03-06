@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ec310972493fc8e41a7dd72a9430f263",
+    "revision": "2704da317bb41358c5541917dab47532",
     "url": "/diabetes-assist/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/diabetes-assist/static/css/2.e9e7e959.chunk.css"
   },
   {
-    "revision": "b9c34d2f82ecd03bbaab",
-    "url": "/diabetes-assist/static/css/main.cb7d10b6.chunk.css"
+    "revision": "bfce3f02e5f81a9dc035",
+    "url": "/diabetes-assist/static/css/main.ffea62c2.chunk.css"
   },
   {
     "revision": "78accabdbbe84515e8e4",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/diabetes-assist/static/js/2.e8412e93.chunk.js.LICENSE"
   },
   {
-    "revision": "b9c34d2f82ecd03bbaab",
-    "url": "/diabetes-assist/static/js/main.a9b1aadf.chunk.js"
+    "revision": "bfce3f02e5f81a9dc035",
+    "url": "/diabetes-assist/static/js/main.8e05322d.chunk.js"
   },
   {
     "revision": "dab8715f803afe6e4a9e",
