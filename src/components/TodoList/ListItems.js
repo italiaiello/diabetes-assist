@@ -11,10 +11,7 @@ const ListItems = props => {
         props.setTodoTasks(newTasks)
     }
 
-    
-
-    const listItems = props.todoTasks === null || !props.todoTasks.length 
-        ? 
+    const listItems = props.todoTasks === null ?
         <p id="noTasksMessage">Nothing to do yet</p>
         :
         props.todoTasks.map((task, i) => {
