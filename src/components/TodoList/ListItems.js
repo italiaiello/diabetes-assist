@@ -11,18 +11,25 @@ const ListItems = props => {
         props.setTodoTasks(newTasks)
     }
 
-    const listItems = props.todoTasks.map((task, i) => {
-        return (
-            <div className="list" key={i}>
-                <div className="circleButton" onClick={() => removeItem(task)}>
-                    <figure className="tickIcon">
-                        <img src={TaskTick} alt="Task ticked off" />
-                    </figure>
+    
+
+    const listItems = props.todoTasks === null || !props.todoTasks.length 
+        ? 
+        <p id="noTasksMessage">Nothing to do yet</p>
+        :
+        props.todoTasks.map((task, i) => {
+            return (
+                <div className="list" key={i}>
+                    <div className="circleButton" onClick={() => removeItem(task)}>
+                        <figure className="tickIcon">
+                            <img src={TaskTick} alt="Task ticked off" />
+                        </figure>
+                    </div>
+                    <p>{task}</p>
                 </div>
-                <p>{task}</p>
-            </div>
-        )
-    })
+            )
+        })
+    
 
     return (
         <div id="thingsToDo">{listItems}</div>

@@ -201,17 +201,9 @@ button, abbr {
     width: 40%;
 }
 
-#time-signout {
+#welcome-signout {
     display: flex;
     justify-content: center;
-}
-
-#time {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    font-family: Montserrat;
-    color: white;
 }
 
 #signout {
@@ -247,8 +239,8 @@ button, abbr {
 
 #welcome {
     color: #07575B;
-    text-align: left;
-    margin: 10px auto;
+    font-size: 25px;
+    margin: 22px;
 }
 
 #welcome span {
@@ -265,6 +257,7 @@ button, abbr {
 #addTask {
     display: flex;
     padding: 10px;
+    padding-left: 0;
 }
 
 #addTask input {
@@ -295,6 +288,12 @@ button, abbr {
 }
 
 /* List Items */
+
+#noTasksMessage {
+   text-align: left;
+   margin: 0;
+   margin-left: 25px;
+}
 
 #thingsToDo {
     height: auto;

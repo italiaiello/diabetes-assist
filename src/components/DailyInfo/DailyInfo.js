@@ -3,19 +3,7 @@ import TodoList from '../../components/TodoList/TodoList'
 
 const DailyInfo = props => {
 
-    
-    const [date, setDate] = useState(new Date())
     const name = props.userName.toUpperCase();
-
-    useEffect(() => {
-        const time = setInterval(() => tick(), 1000)
-
-        return () => clearInterval(time)
-    }, [date])
-
-    const tick = () => {
-        setDate(new Date())
-    }
 
     const onSignOut = () => {
         props.setIsSigningOut(true)
@@ -40,15 +28,12 @@ const DailyInfo = props => {
         
     return (
         <section id="dailyInfo">
-            <article id="time-signout">
-                <div id="time">
-                    <h2>{date.toLocaleTimeString().substring(0, 5)}</h2>
-                </div>
+            <article id="welcome-signout">
+                <h1 id="welcome">Welcome, <span>{name}</span></h1>
                 <div id="signout">
                     <button onClick={onSignOut} >Sign Out</button>
                 </div>
             </article>
-            <h1 id="welcome">Welcome, <span>{name}</span></h1>
             <h2 id="today">TODAY</h2>
             <TodoList todoTasks={props.todoTasks} setTodoTasks={props.setTodoTasks} />
         </section>
