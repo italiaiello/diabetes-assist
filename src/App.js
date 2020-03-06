@@ -45,9 +45,9 @@ const App = () => {
       diagnosis: data.diagnosis
     })
     console.log(data.todo_list)
-    data.todo_list === null || !data.todo_list.length
-    ? setTodoTasks([])
-    : setTodoTasks(data.todo_list)
+    if (data.todoList !== null) {
+      setTodoTasks(data.todo_list)
+    }
     
     setMedicationRoutine(data.medication_routine)
     setAppointments(data.appointments)
