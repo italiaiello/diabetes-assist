@@ -6,14 +6,20 @@ const TodoList = props => {
     const [currentItem, setCurrentItem] = useState('')
 
     const handleInput = e => {
+        console.log(e.target.value)
         setCurrentItem(e.target.value)
     }
 
     const addItem = () => {
         if (currentItem !== "") {
-            const newItems = [...props.todoTasks, currentItem];
-            props.setTodoTasks(newItems);
-            setCurrentItem('')
+            if (props.todoTasks !== null) {
+                const newItems = props.todoTasks.slice()
+                newItems.push(currentItem)
+                props.setTodoTasks(newItems)
+            } else {
+                const newItem = [currentItem]
+                props.setTodoTasks(newItem)
+            }
         }
         setCurrentItem('')
         console.log(props.todoTasks)

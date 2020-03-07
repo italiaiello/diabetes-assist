@@ -6,7 +6,7 @@ const ListItems = props => {
     console.log(props.todoTasks)
 
     const removeItem = taskToDelete => {
-        let newTasks = [...props.todoTasks]
+        let newTasks = props.todoTasks.slice()
         newTasks = newTasks.filter(task => task !== taskToDelete)
         props.setTodoTasks(newTasks)
     }
