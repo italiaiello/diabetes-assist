@@ -41,6 +41,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .logo {
@@ -82,7 +83,7 @@
 
 .inputField, .dropdownWrapper {
     width: 550px;
-    height: 80px;
+    height: 70px;
     background-color: #C4DFE6;
     color: #66A5AD;
     border: none;
@@ -94,9 +95,9 @@
 }
 
 .dropdown {
-    width:550px;
-    height:80px;
-    border:0px;
+    width: 550px;
+    height: 70px;
+    border: 0px;
     outline:none;
     background-color: transparent;
     font-size: 20px;
@@ -118,6 +119,13 @@
 }
 
 /* Register */
+
+#register {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .hide {
     display: none
@@ -168,7 +176,7 @@ abbr[title] {
   
 .react-calendar {
     width: 40%;
-    height: auto;
+    height: 80vh;
     margin: 0;
 }
 
@@ -183,7 +191,7 @@ button, abbr {
 
 .react-calendar__tile {
     font-size: 15px;
-    height: 100px;
+    height: 80px;
 }
 
 .react-calendar__month-view__days__day {
