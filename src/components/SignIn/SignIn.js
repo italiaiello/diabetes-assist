@@ -8,12 +8,20 @@ const SignIn = props => {
     const [password, setPassword] = useState('')
 
     const [isValid, setIsValid] = useState(true)
-    const [isValidText, setIsValidText] = useState('')
 
-    const onEmailChange = e => { setEmail(e.target.value) }
-    const onPasswordChange = e => { setPassword(e.target.value) }
+    const [isSigningIn, setIsSigningIn] = useState(false)
+
+    const onEmailChange = e => { 
+        setEmail(e.target.value)
+        setIsValid(true); 
+    }
+    const onPasswordChange = e => { 
+        setPassword(e.target.value) 
+        setIsValid(true);
+    }
 
     const onSubmitSignIn = () => {
+        setIsSigningIn(true)
         fetch('https://floating-waters-62169.herokuapp.com/signin', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -29,10 +37,13 @@ const SignIn = props => {
                 props.onRouteChange('home')
             } else {
                 setIsValid(false);
-                setIsValidText('Username or password is incorrect')
             }
+            setIsSigningIn(false)
         })
-        .catch (err => console.log(err))
+        .catch (err => {
+            console.log(err)
+            setIsSigningIn(false)
+        })
 
     }
 
@@ -49,7 +60,7 @@ const SignIn = props => {
                     <figure className="errorIcon">
                         <img src={ErrorIcon} alt="Error symbol" />
                     </figure>
-                    <p>{isValidText}</p>
+                    <p>Username or password is incorrect</p>
                 </div>
                 <button className="formButton" type="button" onClick={onSubmitSignIn}>Sign In</button>
                 <p>Don't have an account?
@@ -57,6 +68,9 @@ const SignIn = props => {
                     <span className="alternateFormLink" onClick={() => props.onRouteChange('register')}>Register</span>
                 </p>
             </form>
+            <div className={isSigningIn ? "show submitFormPopUp" : "hide submitFormPopUp"}>
+                <p>Signing in...</p>
+            </div>
         </article>
     )
 }

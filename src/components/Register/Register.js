@@ -19,6 +19,8 @@ const Register = props => {
     const [isValid, setIsValid] = useState(true);
     const [isInfoValidText, setIsInfoValidText] = useState('')
 
+    const [isRegistering, setIsRegistering] = useState(false)
+
     const infoIsValid = () => {
         if (counter === 0) {
             if (userName.length === 0 || email.length === 0 || age.length === 0 || gender === "nothing") {
@@ -80,10 +82,10 @@ const Register = props => {
 
     const onSubmitRegister = (e) => {
         e.preventDefault()
+        setIsRegistering(true)
         if (!passwordDoesMatch()) {
             return 'Passwords must match'
         }
-        console.log(userName, age, gender, weight, height, diagnosis, email, password)
         fetch('https://floating-waters-62169.herokuapp.com/register', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -104,8 +106,12 @@ const Register = props => {
                 props.loadUser(data)
                 props.onRouteChange('home')
             }
+            setIsRegistering(false)
         })
-        .catch (err => console.log(err))
+        .catch (err => {
+            console.log(err)
+            isRegistering(false)
+        })
     }
 
     return (
@@ -137,7 +143,6 @@ const Register = props => {
                             <option value="nothing">Please select your diagnosis</option>
                             <option value="Type 1 Diabetes">Type 1 Diabetes</option>
                             <option value="Type 2 Diabetes">Type 2 Diabetes</option>
-                            <option value="Type 3 Diabetes">Type 3 Diabetes</option>
                         </select>
                     </div>
                 </div>
@@ -158,6 +163,9 @@ const Register = props => {
                     <span className="alternateFormLink" onClick={() => props.onRouteChange('signin')}>Sign In</span>
                 </p>
             </form>
+            <div className={isRegistering ? "show submitFormPopUp" : "hide submitFormPopUp"}>
+                <p>Registering...</p>
+            </div>
         </article>
     )
 }
