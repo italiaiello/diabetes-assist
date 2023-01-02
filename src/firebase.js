@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+require('dotenv').config()
 
 const {
     REACT_APP_API_KEY,
