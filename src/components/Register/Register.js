@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth, database } from '../../firebase'
+import { ref, set } from "firebase/database";
 import Logo from '../../images/DA_logo.svg'
 import ErrorIcon from '../../images/Error.svg'
 
@@ -86,31 +89,30 @@ const Register = props => {
         if (!passwordDoesMatch()) {
             return 'Passwords must match'
         }
-        fetch('https://floating-waters-62169.herokuapp.com/register', {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: userName,
-                age: age,
-                gender: gender, 
-                weight: weight,
-                height: height,
-                diagnosis: diagnosis,
-                email: email,
-                password: password
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.name) {
-                props.loadUser(data)
-                props.onRouteChange('home')
-            }
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.sessionStorage.setItem("userId", user.uid)
+            writeUserData(user.uid, userName, age, gender, weight, height, diagnosis)
+            props.loadUser({ name: userName, age: age, gender: gender, weight: weight, height: height, diagnosis: diagnosis })
             setIsRegistering(false)
+            props.onRouteChange('home')
         })
-        .catch (err => {
-            console.log(err)
-            isRegistering(false)
+        .catch((error) => {
+            console.log(error.message)
+            setIsRegistering(false)
+        });
+    }
+
+    const writeUserData = (userId, name, age, gender, weight, height, diagnosis) => {
+        set(ref(database, 'users/' + userId), {
+            name: name,
+            age: age,
+            gender: gender,
+            weight: weight,
+            height: height,
+            diagnosis: diagnosis
         })
     }
 

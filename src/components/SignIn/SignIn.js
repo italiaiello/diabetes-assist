@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { ref, onValue} from "firebase/database";
+import { auth, database } from '../../firebase'
 import Logo from '../../images/DA_logo.svg'
 import ErrorIcon from '../../images/Error.svg'
 
@@ -22,31 +25,27 @@ const SignIn = props => {
 
     const onSubmitSignIn = () => {
         setIsSigningIn(true)
-        fetch('https://floating-waters-62169.herokuapp.com/signin', {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        })
-        .then(response => response.json())
-        .then(user => {
-            if (user.id) {
-                props.loadUser(user)
-                props.onRouteChange('home')
-            } else {
-                setIsValid(false);
-            }
-            setIsSigningIn(false)
-        })
-        .catch (err => {
-            console.log(err)
-            setIsSigningIn(false)
-        })
 
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setIsSigningIn(false)
+            retrieveUserData(user.uid)
+            props.onRouteChange('home')
+        })
+        .catch((error) => {
+            console.log(error.message)
+            setIsSigningIn(false)
+        })
     }
 
+    const retrieveUserData = (userId) => {
+        const user = ref(database, 'users/' + userId);
+        onValue(user, (snapshot) => {
+            const data = snapshot.val();
+            props.loadUser(data)
+        });
+    }
 
     return (
         <article id="signin">
