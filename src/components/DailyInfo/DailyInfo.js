@@ -1,5 +1,8 @@
 import React from 'react';
 import TodoList from '../../components/TodoList/TodoList'
+import { signOut } from "firebase/auth";
+import { auth } from '../../firebase';
+
 
 const DailyInfo = props => {
 
@@ -7,23 +10,13 @@ const DailyInfo = props => {
 
     const onSignOut = () => {
         props.setIsSigningOut(true)
-        fetch('https://floating-waters-62169.herokuapp.com/signout', {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: props.userEmail,
-                tasks: props.todoTasks
-            })
+        signOut(auth).then(() => {
+            props.setIsSigningOut(false)
+            props.onRouteChange('start')
+        }).catch((error) => {
+            console.log(error.message)
+            props.setIsSigningOut(false)
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data === 'success') {
-                props.setIsSigningOut(false)
-                props.onRouteChange('start')
-            }
-        })
-        .catch (err => console.log(err));
-        
     }
         
     return (

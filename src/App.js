@@ -34,9 +34,7 @@ const App = () => {
   }
 
   const loadUser = (data) => {
-    console.log(data)
     setUser({
-      id: data.id,
       name: data.name,
       email: data.email,
       age: data.age,
@@ -44,14 +42,17 @@ const App = () => {
       height: data.height,
       diagnosis: data.diagnosis
     })
-    console.log('howdy')
-    if (data.todoList !== null) {
-      setTodoTasks(data.todo_list)
+    if (data.tasks !== undefined) {
+      const tasksArray = Object.values(data.tasks).map(item => ({
+        id: item.id,
+        task: item.task
+      }))
+      setTodoTasks(tasksArray)
     }
     
-    setMedicationRoutine(data.medication_routine)
-    setAppointments(data.appointments)
-    setMealPlan(data.meal_plan)
+    // setMedicationRoutine(data.medication_routine)
+    // setAppointments(data.appointments)
+    // setMealPlan(data.meal_plan)
   }
 
   return (

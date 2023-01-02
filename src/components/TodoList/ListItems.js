@@ -1,28 +1,29 @@
 import React from 'react';
+import { ref, remove } from "firebase/database";
 import TaskTick from '../../images/Tick.svg'
+import { auth, database } from '../../firebase';
 
 const ListItems = props => {
 
-    console.log(props.todoTasks)
-
     const removeItem = taskToDelete => {
         let newTasks = props.todoTasks.slice()
-        newTasks = newTasks.filter(task => task !== taskToDelete)
+        newTasks = newTasks.filter(task => task.id !== taskToDelete.id)
+        remove(ref(database, `users/${auth.currentUser.uid}/tasks/${taskToDelete.id}`))
         props.setTodoTasks(newTasks)
     }
 
     const listItems = props.todoTasks === null ?
         <p id="noTasksMessage">Nothing to do yet</p>
         :
-        props.todoTasks.map((task, i) => {
+        props.todoTasks.map((taskTodo) => {
             return (
-                <div className="list" key={i}>
-                    <div className="circleButton" onClick={() => removeItem(task)}>
+                <div className="list" key={taskTodo.id}>
+                    <div className="circleButton" onClick={() => removeItem(taskTodo)}>
                         <figure className="tickIcon">
                             <img src={TaskTick} alt="Task ticked off" />
                         </figure>
                     </div>
-                    <p>{task}</p>
+                    <p>{taskTodo.task}</p>
                 </div>
             )
         })
